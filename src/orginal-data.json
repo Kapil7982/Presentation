@@ -29,80 +29,49 @@
             "lecture_id": 1,
             "order": 3,
             "archived": false
-        },
-        {
-            "id": 4,
-            "lecture_id": 1,
-            "order": 4,
-            "archived": false
-        },
-        {
-            "id": 5,
-            "lecture_id": 1,
-            "order": 5,
-            "archived": false
-        },
-        {
-            "id": 6,
-            "lecture_id": 1,
-            "order": 6,
-            "archived": false
-        },
-        {
-            "id": 7,
-            "lecture_id": 1,
-            "order": 7,
-            "archived": false
-        },
-        {
-            "id": 8,
-            "lecture_id": 1,
-            "order": 8,
-            "archived": false
         }
-
     ],
     "segments": [
         {
-            "id": 0,
+            "id": 1,
             "scene_id": 1,
             "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/2023_12_11_10.25.17.mp4",
-            "slide": "<div><h1>Introduction</h1><p>This is a slide for introducing the topic of blended learning</p></div>",
-            "next_segment_id": 1,
+            "slide": "<div><h1>Scene 1 Segment 1 Explanation</h1></div>",
+            "next_segment_id": 2,
             "archived": false,
             "type": "explanation"
         },
         {
-            "id": 1,
-            "scene_id": 1,
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg2.mp4",
-            "slide": "<div><h1>Addition</h1><p><strong>Definition:</strong> Addition is when you put together two or more numbers together to find the total amount. </p></div>",
-            "next_segment_id": 2,
-            "archived": false
-        },
-        {
             "id": 2,
             "scene_id": 1,
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-            "slide": "<div><h1>It's Time for Basic Math</h1><p>What is the sum of 2 and 8?</p><ul><li>a) 20</li><li>b) 11</li><li>c) 10</li><li>d) 14</li></ul></div>",
-            "type": "assessment",
-            "success_scene_id": 2,
-            "failure_scene_id": 3,
-            "answer": "10",
-            "options": [
-                "20",
-                "11",
-                "10",
-                "14"
-            ],
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg2.mp4",
+            "slide": "<div><h1>Scene 1 Segment 2 Explanation</h1></div>",
+            "next_segment_id": 3,
             "archived": false
         },
         {
             "id": 3,
+            "scene_id": 1,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Scene 1 Assessment</h1><p>Correct answer is 'first'</p></div>",
+            "type": "assessment",
+            "success_scene_id": 2,
+            "failure_scene_id": 3,
+            "answer": "first",
+            "options": [
+                "first",
+                "second",
+                "third",
+                "fourth"
+            ],
+            "archived": false
+        },
+        {
+            "id": 4,
             "scene_id": 2,
             "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
-            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'></div>",
-            "success_scene_id": 2,
+            "slide": "<div><h1>Scene 2 Segment 1 Explanation</h1></div>",
+            "next_segment_id": 5,
             "archived": false
         },
         {

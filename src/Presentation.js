@@ -58,7 +58,8 @@ const Presentation = ({ segments, nextSceneSegments }) => {
 
       if (transcript === currentSegment.answer) {
         nextSceneSegments(currentSegment.success_scene_id);
-      } else {
+      } else if(currentSegment.options?.includes(transcript))
+      {
         nextSceneSegments(currentSegment.failure_scene_id);
       }
     }
