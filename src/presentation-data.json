@@ -66,7 +66,7 @@
         {
             "id": 0,
             "scene_id": 1,
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/2023_12_11_10.25.17.mp4",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
             "slide": "<div><h1>Introduction</h1><p>This is a slide for introducing the topic of blended learning</p></div>",
             "next_segment_id": 1,
             "archived": false,
@@ -75,7 +75,7 @@
         {
             "id": 1,
             "scene_id": 1,
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg2.mp4",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
             "slide": "<div><h1>Addition</h1><p><strong>Definition:</strong> Addition is when you put together two or more numbers together to find the total amount. </p></div>",
             "next_segment_id": 2,
             "archived": false
@@ -102,7 +102,7 @@
             "scene_id": 1,
             "type":"defenative",
             "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'></div>",
+            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'>Great work, your answer is correct. Let's move on to the next topic.</div>",
             "next_scene_id": 3,
             "archived": false
         },
@@ -110,15 +110,15 @@
             "id": 4,
             "scene_id": 1,
             "type":"defenative",
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
-            "slide": "<div><img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdelhi&psig=AOvVaw0G6ntFm0FaujGI-5nIq193&ust=1705204191171000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMjV6uK62YMDFQAAAAAdAAAAABAE' alt='Wrong Answer'>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</div>",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</div>",
             "next_scene_id": 2,
             "archived": false
         },
         {
             "id": 5,
             "scene_id": 2,
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/2023_12_11_10.25.17.mp4",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
             "slide": "<div><h1>This slide is for explaining addition in-depth</h1></div>",
             "next_segment_id": 6,
             "archived": false,
@@ -154,15 +154,15 @@
             "id": 8,
             "scene_id": 2,
             "type":"defenative",
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
-            "slide": "<div><img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdelhi&psig=AOvVaw0G6ntFm0FaujGI-5nIq193&ust=1705204191171000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMjV6uK62YMDFQAAAAAdAAAAABAE' alt='Wrong Answer'>Oh, it seems there might be a bit of confusion. The correct answer is d) 14. No worries. Let's move to the next topic and revisit this later.</div>",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'>Oh, it seems there might be a bit of confusion. The correct answer is d) 14. No worries. Let's move to the next topic and revisit this later.</div>",
             "next_scene_id": 3,
             "archived": false
         },
         {
             "id": 9,
             "scene_id": 3,
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/2023_12_11_10.25.17.mp4",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
             "slide": "<div><h1>Subtraction</h1><h3>Definition</h3><h4>This slide is for explaining subtraction</h4></div>",
             "next_segment_id": 10,
             "archived": false,
@@ -172,13 +172,13 @@
             "id": 10,
             "scene_id": 3,
             "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-            "slide": "<div><h2>It's time to some basic math</h2><h3>What is the different of 8 and 2?</h3><p>A) 10</p><p>B) 6</p><p>C) 500</p><p>D) 3</p></div>",
+            "slide": "<div><h2>It's time to some basic math</h2><h3>What is the different of 10 and 2?</h3><p>A) 8</p><p>B) 6</p><p>C) 500</p><p>D) 3</p></div>",
             "type": "assessment",
             "success_segment_id": 11,
             "failure_segment_id": 12,
-            "answer": "6",
+            "answer": "8",
             "options": [
-                "10",
+                "8",
                 "6",
                 "500",
                 "3"
@@ -189,18 +189,236 @@
             "id": 11,
             "scene_id": 3,
             "type":"defenative",
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
             "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'></div>",
-            "next_scene_id": 4,
+            "next_scene_id": 5,
             "archived": false
         },
         {
             "id": 12,
             "scene_id": 3,
             "type":"defenative",
-            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Right Answer'></div>",
+            "next_scene_id": 4,
+            "archived": false
+        },
+        {
+            "id": 13,
+            "scene_id": 4,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Subtraction In Depth</h1><h4>This slide is for explaining subtraction in-depth</h4></div>",
+            "next_segment_id": 14,
+            "archived": false,
+            "type": "explanation"
+        },
+        {
+            "id": 14,
+            "scene_id": 4,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h2>It's time to some basic math</h2><h3>What is 14 - 8?</h3><p>A) 8</p><p>B) 6</p><p>C) 22</p><p>D) 69</p></div>",
+            "type": "assessment",
+            "success_segment_id": 15,
+            "failure_segment_id": 16,
+            "answer": "6",
+            "options": [
+                "8",
+                "6",
+                "22",
+                "69"
+            ],
+            "archived": false
+        },
+        {
+            "id": 15,
+            "scene_id": 4,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
             "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'></div>",
-            "next_scene_id": 3,
+            "next_scene_id": 5,
+            "archived": false
+        },
+        {
+            "id": 16,
+            "scene_id": 4,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'></div>",
+            "next_scene_id": 5,
+            "archived": false
+        },
+        {
+            "id": 17,
+            "scene_id": 5,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Multiplication</h1> </br> <p><strong>Definition:</strong> This slide is for explaining multiplication. </p></div>",
+            "next_segment_id": 18,
+            "archived": false
+        },
+        {
+            "id": 18,
+            "scene_id": 5,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Its time to do some basic math.</h1> </br> <p>What is the product of 2 and 8?</p><ul><li>a) 20</li><li>b) 16</li><li>c) 24</li><li>d) 10</li></ul></div>",
+            "type": "assessment",
+            "success_segment_id": 19,
+            "failure_segment_id": 20,
+            "answer": "16",
+            "options": [
+                "20",
+                "16",
+                "24",
+                "10"
+            ],
+            "archived": false
+        },
+        {
+            "id": 19,
+            "scene_id": 5,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'></div>",
+            "next_scene_id": 7,
+            "archived": false
+        },
+        {
+            "id": 20,
+            "scene_id": 5,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'></div>",
+            "next_scene_id": 6,
+            "archived": false
+        },
+        {
+            "id": 21,
+            "scene_id": 6,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Multiplication in depth</h1> </br> <p><strong>Definition:</strong> This slide is for explaining multiplication in depth. </p></div>",
+            "next_segment_id": 22,
+            "archived": false
+        },
+        {
+            "id": 22,
+            "scene_id": 6,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Its time to do some basic math.</h1> </br> <p>What is  of 2*4 ?</p><ul><li>a) 8</li><li>b) 16</li><li>c) 40</li><li>d) 32</li></ul></div>",
+            "type": "assessment",
+            "success_segment_id": 23,
+            "failure_segment_id": 24,
+            "answer": "8",
+            "options": [
+                "8",
+                "16",
+                "40",
+                "32"
+            ],
+            "archived": false
+        },
+        {
+            "id": 23,
+            "scene_id": 6,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'></div>",
+            "next_scene_id": 7,
+            "archived": false
+        },
+        {
+            "id": 24,
+            "scene_id": 6,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'></div>",
+            "next_scene_id": 7,
+            "archived": false
+        },
+        {
+            "id": 25,
+            "scene_id": 7,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Scene 4 Segment 1 </h1><p>Division</p><p>This slide is for explaining division</p></div>",
+            "next_segment_id": 26,
+            "archived": false,
+            "type": "explanation"
+        },
+        {
+            "id": 26,
+            "scene_id": 7,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>Scene 4 Assessment</h1><p>Its time to do some basic math.'</p><p>What is the result of 8 divided by 2?</p><ul><li>a) 16</li><li>b) 8</li><li>c) 6</li><li>d) 4</li></ul></div>",
+            "type": "assessment",
+            "success_segment_id": 27,
+            "failure_segment_id": 28,
+            "answer": "4",
+            "options": [
+                "16",
+                "8",
+                "6",
+                "4"
+            ],
+            "archived": false
+        },
+        {
+            "id": 27,
+            "scene_id": 7,
+            "type": "defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'>Great work, your answer is correct. This concludes our session for now. Thank you and have a nice day.</div>",
+            "next_scene_id": 9,
+            "archived": false
+        },
+        {
+            "id": 28,
+            "scene_id": 7,
+            "type": "defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'>Oh,it seems there might be a bit of confusion. The correct answer is d) 4. No worries,let's revisit this topic again.</div>",
+            "next_scene_id": 8,
+            "archived": false
+        },
+        {
+            "id": 29,
+            "scene_id": 8,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>This slide is for explaining Division in-depth </h1></div>",
+            "next_segment_id": 30,
+            "archived": false,
+            "type": "explanation"
+        },
+        {
+            "id": 30,
+            "scene_id": 8,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>It's Time for Basic Math in depth </h1><p>What is 100/5</p><ul><li>a) 20</li><li>b) 30</li><li>c) 50</li><li>d) 10</li></ul></div>",
+            "type": "assessment",
+            "success_segment_id": 31,
+            "failure_segment_id": 32,
+            "answer": "20",
+            "options": [
+                "20",
+                "30",
+                "50",
+                "10"
+            ],
+            "archived": false
+        },
+        {
+            "id": 31,
+            "scene_id": 8,
+            "type": "defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'>Great work, your answer is correct.This concludes our session for now. Thank you and have a nice day</div>",
+            "next_scene_id": 9,
+            "archived": false
+        },
+        {
+            "id": 32,
+            "scene_id": 8,
+            "type": "defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'>Oh, it seems there might be a bit of confusion. The correct answer is a) 20. No worries. This concludes our session for now. Thank you and have a nice day.</div>",
+            "next_scene_id": 9,
             "archived": false
         }
     ]
