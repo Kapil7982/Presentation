@@ -111,8 +111,52 @@
             "scene_id": 1,
             "type":"defenative",
             "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
-            "slide": "<div><img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdelhi&psig=AOvVaw0G6ntFm0FaujGI-5nIq193&ust=1705204191171000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMjV6uK62YMDFQAAAAAdAAAAABAE' alt='Right Answer'></div>",
+            "slide": "<div><img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdelhi&psig=AOvVaw0G6ntFm0FaujGI-5nIq193&ust=1705204191171000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMjV6uK62YMDFQAAAAAdAAAAABAE' alt='Wrong Answer'>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</div>",
             "next_scene_id": 2,
+            "archived": false
+        },
+        {
+            "id": 5,
+            "scene_id": 2,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/2023_12_11_10.25.17.mp4",
+            "slide": "<div><h1>This slide is for explaining addition in-depth</h1></div>",
+            "next_segment_id": 6,
+            "archived": false,
+            "type": "explanation"
+        },
+        {
+            "id": 6,
+            "scene_id": 2,
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><h1>It's Time for Basic Math</h1><p>What is the 5 + 9?</p><ul><li>a) 12</li><li>b) 13</li><li>c) 15</li><li>d) 14</li></ul></div>",
+            "type": "assessment",
+            "success_segment_id": 7,
+            "failure_segment_id": 8,
+            "answer": "14",
+            "options": [
+                "12",
+                "13",
+                "15",
+                "14"
+            ],
+            "archived": false
+        },
+        {
+            "id": 7,
+            "scene_id": 2,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+            "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'>Great work, your answer is correct. Let's move on to the next topic.</div>",
+            "next_scene_id": 3,
+            "archived": false
+        },
+        {
+            "id": 8,
+            "scene_id": 2,
+            "type":"defenative",
+            "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+2.0/s1seg1.mp4",
+            "slide": "<div><img src='https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fphotos%2Fdelhi&psig=AOvVaw0G6ntFm0FaujGI-5nIq193&ust=1705204191171000&source=images&cd=vfe&ved=0CBMQjRxqFwoTCMjV6uK62YMDFQAAAAAdAAAAABAE' alt='Wrong Answer'>Oh, it seems there might be a bit of confusion. The correct answer is d) 14. No worries. Let's move to the next topic and revisit this later.</div>",
+            "next_scene_id": 3,
             "archived": false
         },
         {
