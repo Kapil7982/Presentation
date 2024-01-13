@@ -16,6 +16,8 @@
       "id": 1,
       "lecture_id": 1,
       "order": 1,
+      "successSceneId": 3,
+      "failureSceneId": 2,
       "archived": false
     },
     {
@@ -69,15 +71,17 @@
       "slide": "<div><h1>Introduction</h1><p>This is a slide for introducing the topic of blended learning</p></div>",
       "next_segment_id": 1,
       "archived": false,
-      "type": "explanation"
+      "type": "explanation",
+      "order": 1
     },
     {
       "id": 1,
       "scene_id": 1,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><h1>Addition</h1><p><strong>Definition:</strong> Addition is when you put together two or more numbers together to find the total amount. </p></div>",
+      "slide": "<div><h1>Addition</h1><p><strong>Definition:</strong> Addition is when you put together two or more numbers together to find the total amount. </p><p><strong>Example:</strong> 2 + 2 = 4</p> <p><strong>Example:</strong> 5 + 3 = 8</p></div>",
       "next_segment_id": 2,
-      "archived": false
+      "archived": false,
+      "order": 2
     },
     {
       "id": 2,
@@ -87,28 +91,14 @@
       "type": "assessment",
       "success_segment_id": 3,
       "failure_segment_id": 4,
-      "answer": "10",
-      "options": ["20", "11", "10", "14"],
-      "archived": false
+      "data": {
+        "answer": "10",
+      "options": ["20", "11", "10", "14"]
+      },
+      "archived": false,
+      "order": 3
     },
-    {
-      "id": 3,
-      "scene_id": 1,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
-      "next_scene_id": 3,
-      "archived": false
-    },
-    {
-      "id": 4,
-      "scene_id": 1,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</p></div>",
-      "next_scene_id": 2,
-      "archived": false
-    },
+    
     {
       "id": 5,
       "scene_id": 2,
@@ -130,24 +120,7 @@
       "options": ["12", "13", "15", "14"],
       "archived": false
     },
-    {
-      "id": 7,
-      "scene_id": 2,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
-      "next_scene_id": 3,
-      "archived": false
-    },
-    {
-      "id": 8,
-      "scene_id": 2,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh, it seems there might be a bit of confusion. The correct answer is d) 14. No worries. Let's move to the next topic and revisit this later.</p></div>",
-      "next_scene_id": 3,
-      "archived": false
-    },
+    
     {
       "id": 9,
       "scene_id": 3,
@@ -169,24 +142,7 @@
       "options": ["8", "6", "500", "3"],
       "archived": false
     },
-    {
-      "id": 11,
-      "scene_id": 3,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
-      "next_scene_id": 5,
-      "archived": false
-    },
-    {
-      "id": 12,
-      "scene_id": 3,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh,it seems there might be a bit of confusion. The correct answer is a) 8. No worries,let's revisit this topic again.</p></div>",
-      "next_scene_id": 4,
-      "archived": false
-    },
+    
     {
       "id": 13,
       "scene_id": 4,
@@ -208,24 +164,7 @@
       "options": ["8", "6", "22", "69"],
       "archived": false
     },
-    {
-      "id": 15,
-      "scene_id": 4,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
-      "next_scene_id": 5,
-      "archived": false
-    },
-    {
-      "id": 16,
-      "scene_id": 4,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh, it seems there might be a bit of confusion. The correct answer is b) 6. No worries. Let's move to the next topic and revisit this later.</p></div>",
-      "next_scene_id": 5,
-      "archived": false
-    },
+    
     {
       "id": 17,
       "scene_id": 5,
@@ -246,24 +185,7 @@
       "options": ["20", "16", "24", "10"],
       "archived": false
     },
-    {
-      "id": 19,
-      "scene_id": 5,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
-      "next_scene_id": 7,
-      "archived": false
-    },
-    {
-      "id": 20,
-      "scene_id": 5,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh,it seems there might be a bit of confusion. The correct answer is a) 16. No worries,let's revisit this topic again.</p></div>",
-      "next_scene_id": 6,
-      "archived": false
-    },
+    
     {
       "id": 21,
       "scene_id": 6,
@@ -284,24 +206,7 @@
       "options": ["8", "16", "40", "32"],
       "archived": false
     },
-    {
-      "id": 23,
-      "scene_id": 6,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
-      "next_scene_id": 7,
-      "archived": false
-    },
-    {
-      "id": 24,
-      "scene_id": 6,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh, it seems there might be a bit of confusion. The correct answer is a) 8. No worries. Let's move to the next topic and revisit this later.</p></div>",
-      "next_scene_id": 7,
-      "archived": false
-    },
+    
     {
       "id": 25,
       "scene_id": 7,
@@ -323,24 +228,7 @@
       "options": ["16", "8", "6", "4"],
       "archived": false
     },
-    {
-      "id": 27,
-      "scene_id": 7,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. This concludes our session for now. Thank you and have a nice day.</p></div>",
-      "next_scene_id": 9,
-      "archived": false
-    },
-    {
-      "id": 28,
-      "scene_id": 7,
-      "type": "defenative",
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh,it seems there might be a bit of confusion. The correct answer is d) 4. No worries,let's revisit this topic again.</p></div>",
-      "next_scene_id": 8,
-      "archived": false
-    },
+    
     {
       "id": 29,
       "scene_id": 8,
@@ -363,22 +251,24 @@
       "archived": false
     },
     {
-      "id": 31,
-      "scene_id": 8,
-      "type": "defenative",
+      "id": 1231313222,
+      "scene_id": null,
+      "type": "success",
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct.This concludes our session for now. Thank you and have a nice day</p></div>",
-      "next_scene_id": 9,
-      "archived": false
+      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
+      "nextSegmentId": null,
+      "archived": false,
+      "order": 4
     },
     {
-      "id": 32,
-      "scene_id": 8,
-      "type": "defenative",
+      "id": 42251686178,
+      "scene_id": null,
+      "type": "failuer",
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh, it seems there might be a bit of confusion. The correct answer is a) 20. No worries. This concludes our session for now. Thank you and have a nice day.</p></div>",
-      "next_scene_id": 9,
-      "archived": false
+      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</p></div>",
+      "nextSegmentId": null,
+      "archived": false,
+      "order": 5
     }
   ]
 }
