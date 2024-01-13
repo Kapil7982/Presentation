@@ -2,7 +2,7 @@ import "./App.css";
 import Presentation from "./Presentation.js";
 import "./Presentation.css";
 import { useState, useEffect } from "react";
-import presentationData from "./presentation-data.json";
+// import presentationData from "./presentation-data.json";
 
 function App() {
   const [lecture, setLecture] = useState([]);
@@ -11,42 +11,59 @@ function App() {
 
   
   useEffect(() => {
-    const lectures = fetchLecture();
-    setLecture(lectures);
+    fetchLecture().then((res) => setLecture(res));
+    // setLecture(lectures);
   }, []);
 
-  const fetchLecture = () => {
-    const lectures = presentationData.lectures.filter(
-      (lecture) => lecture.type === "interactive-session"
-    );
-    return lectures;
+  const fetchLecture = async () => {
+    try {
+      const res = await fetch("http://localhost:3005/lectures");
+      const data = await res.json();
+      const filteredSessions = data.filter(
+        (lecture) => lecture.type === "interactive-session"
+      );
+      return filteredSessions;
+    } catch (error) {
+      console.log("error in fetching lectuers", error);
+    }
   };
 
-  const fetchScenes = (lectureId) => {
-    const scenes = presentationData.scenes
-      .filter(
-        (scene) => scene.lecture_id === lectureId && scene.archived === false
-      )
-      .sort((a, b) => a.order - b.order);
-    return scenes;
+  const fetchScenes = async (lectureId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3005/scenes?lecture_id=${lectureId}&_sort=order`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching scenes:", error);
+      return [];
+    }
   };
 
-  const fetchSegments = (sceneId) => {
-    const segments = presentationData.segments
-      .filter((segment) => segment.scene_id === sceneId)
-      .sort((a, b) => a.next_segment_id - b.next_segment_id);
-    return segments;
+  const fetchSegments = async (sceneId) => {
+    try {
+      const response = await fetch(
+        `http://localhost:3005/segments?scene_id=${sceneId}&_sort=next_segment_id`
+      );
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("Error fetching segments:", error);
+      return [];
+    }
   };
 
-  const startLecture = (lectureId) => {
-    const scenes = fetchScenes(lectureId);
+  const startLecture = async (lectureId) => {
+    const scenes = await fetchScenes(lectureId);
     setScenes(scenes);
-    const segments = fetchSegments(scenes[0].id);
+    const segments = await fetchSegments(scenes[0]?.id);
+    // console.log("segments",segments);
     setSegments(segments);
   };
 
-  const nextSceneSegments = (sceneId) => {
-    const segments = fetchSegments(sceneId);
+  const nextSceneSegments = async (sceneId) => {
+    const segments = await fetchSegments(sceneId)
     setSegments(segments);
     console.log("segments, APP",segments)
   };
@@ -64,7 +81,7 @@ function App() {
             );
           })}
       </div>
-      {segments.length > 0 && (
+      {segments?.length > 0 && (
         <Presentation
           segments={segments}
           nextSceneSegments={nextSceneSegments}
