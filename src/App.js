@@ -84,6 +84,7 @@ function App() {
       {segments?.length > 0 && (
         <Presentation
           segments={segments}
+          scenes={scenes}
           nextSceneSegments={nextSceneSegments}
         />
       )}
