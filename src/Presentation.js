@@ -42,9 +42,8 @@ const Presentation = ({ segments, nextSceneSegments }) => {
   };
 
   const handleVideoEnded = async () => {
-  
     const nextSegment = getNextSegment();
-   
+
     if (currentSegment?.type === "assessment") {
       SpeechRecognition.startListening({ continuous: true });
     } else if (currentSegment?.type === "defenative") {
@@ -61,7 +60,6 @@ const Presentation = ({ segments, nextSceneSegments }) => {
       document.querySelector("video").play();
     }
   }, [currentSegment]);
-
 
   useEffect(() => {
     console.log("ashgdh", currentSegment);

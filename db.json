@@ -24,42 +24,56 @@
       "id": 2,
       "lecture_id": 1,
       "order": 2,
+      "successSceneId": 3,
+      "failureSceneId": 3,
       "archived": false
     },
     {
       "id": 3,
       "lecture_id": 1,
       "order": 3,
+      "successSceneId": 5,
+      "failureSceneId": 4,
       "archived": false
     },
     {
       "id": 4,
       "lecture_id": 1,
       "order": 4,
+      "successSceneId": 5,
+      "failureSceneId": 5,
       "archived": false
     },
     {
       "id": 5,
       "lecture_id": 1,
       "order": 5,
+      "successSceneId": 7,
+      "failureSceneId": 6,
       "archived": false
     },
     {
       "id": 6,
       "lecture_id": 1,
       "order": 6,
+      "successSceneId": 7,
+      "failureSceneId": 7,
       "archived": false
     },
     {
       "id": 7,
       "lecture_id": 1,
       "order": 7,
+      "successSceneId": null,
+      "failureSceneId": 8,
       "archived": false
     },
     {
       "id": 8,
       "lecture_id": 1,
       "order": 8,
+      "successSceneId": null,
+      "failureSceneId": null,
       "archived": false
     }
   ],
@@ -69,19 +83,22 @@
       "scene_id": 1,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Introduction</h1><p>This is a slide for introducing the topic of blended learning</p></div>",
-      "next_segment_id": 1,
+      "order": 1,
       "archived": false,
-      "type": "explanation",
-      "order": 1
+      "next_segment_id": 1,
+      "data": null,
+      "type": "explanation"
     },
     {
       "id": 1,
       "scene_id": 1,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Addition</h1><p><strong>Definition:</strong> Addition is when you put together two or more numbers together to find the total amount. </p><p><strong>Example:</strong> 2 + 2 = 4</p> <p><strong>Example:</strong> 5 + 3 = 8</p></div>",
-      "next_segment_id": 2,
+      "order": 2,
       "archived": false,
-      "order": 2
+      "data": null,
+      "next_segment_id": 2,
+      "type": "explanation"
     },
     {
       "id": 2,
@@ -89,171 +106,192 @@
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>It's Time for Basic Math</h1><p>What is the sum of 2 and 8?</p><ul><li>a) 20</li><li>b) 11</li><li>c) 10</li><li>d) 14</li></ul></div>",
       "type": "assessment",
-      "success_segment_id": 3,
-      "failure_segment_id": 4,
+      "order": 3,
       "data": {
         "answer": "10",
-      "options": ["20", "11", "10", "14"]
+        "options": ["20", "11", "10", "14"]
       },
-      "archived": false,
-      "order": 3
+      "archived": false
     },
-    
     {
-      "id": 5,
+      "id": 3,
       "scene_id": 2,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>This slide is for explaining addition in-depth</h1></div>",
-      "next_segment_id": 6,
+      "next_segment_id": 4,
       "archived": false,
-      "type": "explanation"
+      "type": "explanation",
+      "data": null,
+      "order": 1
     },
     {
-      "id": 6,
+      "id": 4,
       "scene_id": 2,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>It's Time for Basic Math</h1><p>What is the 5 + 9?</p><ul><li>a) 12</li><li>b) 13</li><li>c) 15</li><li>d) 14</li></ul></div>",
       "type": "assessment",
-      "success_segment_id": 7,
-      "failure_segment_id": 8,
-      "answer": "14",
-      "options": ["12", "13", "15", "14"],
-      "archived": false
+      "data": {
+        "answer": "14",
+        "options": ["12", "13", "15", "14"]
+      },
+      "archived": false,
+      "order": 2
     },
-    
+
     {
-      "id": 9,
+      "id": 5,
       "scene_id": 3,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Subtraction</h1><h3>Definition</h3><h4>This slide is for explaining subtraction</h4></div>",
-      "next_segment_id": 10,
+      "next_segment_id": 6,
       "archived": false,
-      "type": "explanation"
+      "type": "explanation",
+      "data": null,
+      "order": 1
     },
     {
-      "id": 10,
+      "id": 6,
       "scene_id": 3,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h2>It's time to some basic math</h2><h3>What is the different of 10 and 2?</h3><p>A) 8</p><p>B) 6</p><p>C) 500</p><p>D) 3</p></div>",
       "type": "assessment",
-      "success_segment_id": 11,
-      "failure_segment_id": 12,
-      "answer": "8",
-      "options": ["8", "6", "500", "3"],
-      "archived": false
+      "data": {
+        "answer": "8",
+        "options": ["8", "6", "500", "3"]
+      },
+      "archived": false,
+      "order": 2
     },
-    
+
     {
-      "id": 13,
+      "id": 7,
       "scene_id": 4,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Subtraction In Depth</h1><h4>This slide is for explaining subtraction in-depth</h4></div>",
-      "next_segment_id": 14,
+      "next_segment_id": 8,
       "archived": false,
-      "type": "explanation"
+      "type": "explanation",
+      "data": null,
+      "order": 1
     },
     {
-      "id": 14,
+      "id": 8,
       "scene_id": 4,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><h2>It's time to some basic math</h2><h3>What is 14 - 8?</h3><p>A) 8</p><p>B) 6</p><p>C) 22</p><p>D) 69</p></div>",
+      "slide": "<div><h2>It's time to some basic math</h2><h3>What is 12 - 3?</h3><p>A) 9</p><p>B) 6</p><p>C) 22</p><p>D) 16</p></div>",
       "type": "assessment",
-      "success_segment_id": 15,
-      "failure_segment_id": 16,
-      "answer": "6",
-      "options": ["8", "6", "22", "69"],
-      "archived": false
+      "data": {
+        "answer": "9",
+        "options": ["9", "6", "22", "15"]
+      },
+      "archived": false,
+      "order": 2
     },
-    
+
     {
-      "id": 17,
+      "id": 9,
       "scene_id": 5,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Multiplication</h1> </br> <p><strong>Definition:</strong> This slide is for explaining multiplication. </p></div>",
-      "next_segment_id": 18,
-      "archived": false
+      "next_segment_id": 10,
+      "archived": false,
+      "data": null,
+      "order": 1,
+      "type": "explanation"
     },
     {
-      "id": 18,
+      "id": 10,
       "scene_id": 5,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Its time to do some basic math.</h1> </br> <p>What is the product of 2 and 8?</p><ul><li>a) 20</li><li>b) 16</li><li>c) 24</li><li>d) 10</li></ul></div>",
       "type": "assessment",
-      "success_segment_id": 19,
-      "failure_segment_id": 20,
-      "answer": "16",
-      "options": ["20", "16", "24", "10"],
-      "archived": false
+      "data": {
+        "answer": "16",
+        "options": ["20", "16", "24", "10"]
+      },
+      "archived": false,
+      "order": 2
     },
-    
+
     {
-      "id": 21,
+      "id": 11,
       "scene_id": 6,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Multiplication in depth</h1> </br> <p><strong>Definition:</strong> This slide is for explaining multiplication in depth. </p></div>",
-      "next_segment_id": 22,
-      "archived": false
-    },
-    {
-      "id": 22,
-      "scene_id": 6,
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><h1>Its time to do some basic math.</h1> </br> <p>What is  of 2*4 ?</p><ul><li>a) 8</li><li>b) 16</li><li>c) 40</li><li>d) 32</li></ul></div>",
-      "type": "assessment",
-      "success_segment_id": 23,
-      "failure_segment_id": 24,
-      "answer": "8",
-      "options": ["8", "16", "40", "32"],
-      "archived": false
-    },
-    
-    {
-      "id": 25,
-      "scene_id": 7,
-      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><h1>Scene 4 Segment 1 </h1><p>Division</p><p>This slide is for explaining division</p></div>",
-      "next_segment_id": 26,
+      "next_segment_id": 12,
       "archived": false,
+      "data": null,
+      "order": 1,
       "type": "explanation"
     },
     {
-      "id": 26,
+      "id": 12,
+      "scene_id": 6,
+      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+      "slide": "<div><h1>Its time to do some basic math.</h1> </br> <p>What is  of 3*4 ?</p><ul><li>a) 8</li><li>b) 16</li><li>c) 40</li><li>d) 12</li></ul></div>",
+      "type": "assessment",
+      "data": {
+        "answer": "12",
+        "options": ["8", "16", "40", "12"]
+      },
+      "archived": false,
+      "order": 2
+    },
+
+    {
+      "id": 13,
+      "scene_id": 7,
+      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+      "slide": "<div><h1>Scene 4 Segment 1 </h1><p>Division</p><p>This slide is for explaining division</p></div>",
+      "next_segment_id": 14,
+      "archived": false,
+      "type": "explanation",
+      "data": null,
+      "order": 1
+    },
+    {
+      "id": 14,
       "scene_id": 7,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>Scene 4 Assessment</h1><p>Its time to do some basic math.'</p><p>What is the result of 8 divided by 2?</p><ul><li>a) 16</li><li>b) 8</li><li>c) 6</li><li>d) 4</li></ul></div>",
       "type": "assessment",
-      "success_segment_id": 27,
-      "failure_segment_id": 28,
-      "answer": "4",
-      "options": ["16", "8", "6", "4"],
-      "archived": false
+      "data": {
+        "answer": "4",
+        "options": ["16", "8", "6", "4"]
+      },
+      "archived": false,
+      "order": 2
     },
-    
+
     {
-      "id": 29,
+      "id": 15,
       "scene_id": 8,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>This slide is for explaining Division in-depth </h1></div>",
-      "next_segment_id": 30,
+      "next_segment_id": 16,
       "archived": false,
-      "type": "explanation"
+      "type": "explanation",
+      "data": null,
+      "order": 1
     },
     {
-      "id": 30,
+      "id": 16,
       "scene_id": 8,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h1>It's Time for Basic Math in depth </h1><p>What is 100/5</p><ul><li>a) 20</li><li>b) 30</li><li>c) 50</li><li>d) 10</li></ul></div>",
       "type": "assessment",
-      "success_segment_id": 31,
-      "failure_segment_id": 32,
-      "answer": "20",
-      "options": ["20", "30", "50", "10"],
-      "archived": false
+      "next_segment_id":null,
+      "data": {
+        "answer": "20",
+        "options": ["20", "30", "50", "10"]
+      },
+      "archived": false,
+      "order": 2
     },
     {
       "id": 1231313222,
       "scene_id": null,
-      "type": "success",
+      "type": "feedback_success",
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
       "nextSegmentId": null,
@@ -263,7 +301,7 @@
     {
       "id": 42251686178,
       "scene_id": null,
-      "type": "failuer",
+      "type": "feedback_failure",
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'><p>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</p></div>",
       "nextSegmentId": null,
