@@ -78,7 +78,6 @@ const Presentation = ({ segments, nextSceneSegments }) => {
       }
     }
 
-    // console.log("SegmentsGp", segments);
     resetTranscript();
   }, [transcript, currentSegment]);
 
