@@ -49,7 +49,7 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
 
   const getNextSegment = () => {
     for (let i = 0; i < segments.length; i++) {
-      if (segments[i].id == currentSegment.next_segment_id) {
+      if (segments[i].order == currentSegment.order+1) {
         return segments[i];
       }
     }
@@ -64,12 +64,21 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
     }
   }
 
+  const findResultSegment = (order) => {
+    for (let i = 0; i < segments.length; i++) {
+      if (segments[i].order == order) {
+        return segments[i]
+      }
+    }
+    return null
+  }
+
     const handleVideoEnded = async () => {
       const nextSegment = getNextSegment();
 
       if (currentSegment?.type === "assessment") {
         SpeechRecognition.startListening({ continuous: true });
-      } else if (currentSegment?.type === "feedback") {
+      } else if (currentSegment?.type === "feedback" || currentSegment?.type === "revisit") {
         const next_step = JSON.parse(localStorage.getItem("next_scene"));
         const currentScene = findCurrentScene(next_step.scene_id, scenes);
         if (next_step.success) {
@@ -95,16 +104,17 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
         SpeechRecognition.stopListening();
 
         if (transcript == currentSegment?.data?.answer) {
-          
+          console.log("success");
+          const nextSegment = findResultSegment(3)
+          console.log("next segment", nextSegment);
           localStorage.setItem(
             "next_scene",
             JSON.stringify({ scene_id: currentSegment.scene_id, success: true })
             );
-            setCurrentSegment(success_feedback);
-            console.log("success", currentSegment);
+            setCurrentSegment(nextSegment);
         } else if (currentSegment?.data?.options?.includes(transcript)) {
-         
-          setCurrentSegment(failure_feedback);
+          const nextSegment = findResultSegment(4)
+          console.log("next segment", nextSegment);
           localStorage.setItem(
             "next_scene",
             JSON.stringify({
@@ -112,6 +122,7 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
               success: false,
             })
           );
+          setCurrentSegment(nextSegment);
         }
       }
 
