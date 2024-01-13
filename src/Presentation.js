@@ -7,6 +7,7 @@ import "./Presentation.css";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import Video from "./Video";
 
 const Presentation = ({ segments, nextSceneSegments }) => {
   const [currentSegment, setCurrentSegment] = useState({});
@@ -37,8 +38,11 @@ const Presentation = ({ segments, nextSceneSegments }) => {
     );
     console.log("ABC handleVideo", currentSegment.next_segment_id);
 
-    if (currentSegment.type === "assessment") {
+    if (currentSegment?.type === "assessment") {
       SpeechRecognition.startListening({ continuous: true });
+    }else if(currentSegment?.type === 'defenative'){
+      console.log("Definetive", currentSegment?.next_scene_id)
+      nextSceneSegments(currentSegment?.next_scene_id);
     } else {
       setCurrentSegment(nextSegment);
     }
@@ -52,21 +56,6 @@ const Presentation = ({ segments, nextSceneSegments }) => {
     }
   }, [currentSegment]);
 
-  // useEffect(() => {
-  //   console.log(transcript);
-  //   if (currentSegment.options?.includes(transcript)) {
-  //     SpeechRecognition.stopListening();
-
-  //     if (transcript === currentSegment.answer) {
-  //       nextSceneSegments(currentSegment.success_scene_id);
-  //     } else if(currentSegment.options?.includes(transcript))
-  //     {
-  //       nextSceneSegments(currentSegment.failure_scene_id);
-  //     }
-  //   }
-
-  //   resetTranscript();
-  // }, [transcript]);
 
   useEffect(() => {
     console.log("ashgdh", currentSegment);
@@ -75,17 +64,17 @@ const Presentation = ({ segments, nextSceneSegments }) => {
       SpeechRecognition.stopListening();
 
       if (transcript === currentSegment.answer) {
-        const successSegmentId = currentSegment.success_segment_id;
-        nextSceneSegments(successSegmentId);
-        console.log("GuruSuccess", currentSegment);
-        // nextSceneSegments(currentSegment.success_segment_id  );
-        // console.log("GuruSuccess", currentSegment.success_segment_id );
-      } else if (currentSegment.options?.includes(transcript)) {
-        const failureSegmentId = currentSegment.failure_segment_id;
-        nextSceneSegments(failureSegmentId);
-        console.log("GuruFail", failureSegmentId);
-        // nextSceneSegments(currentSegment.failure_segment_id);
-        // console.log("GuruFail", currentSegment.failure_segment_id  );
+        // nextSceneSegments(currentSegment.success_segment_id);
+        const nextSegment = segments.find(
+          (segment) => segment.id === currentSegment.success_segment_id
+        );
+        setCurrentSegment(nextSegment);
+      } else if(currentSegment.options?.includes(transcript))
+      {
+        const nextSegment = segments.find(
+          (segment) => segment.id === currentSegment.failure_segment_id
+        );
+        setCurrentSegment(nextSegment);
       }
     }
 
@@ -103,13 +92,12 @@ const Presentation = ({ segments, nextSceneSegments }) => {
           ></section>
         </div>
       </div>
-      <Draggable defaultPosition={{ x: 640, y: -300 }}>
-        <video autoPlay onEnded={handleVideoEnded}>
-          {currentSegment.video && (
-            <source src={currentSegment.video} type="video/mp4" />
-          )}
-        </video>
-      </Draggable>
+      <div className="videoTag">
+        <Video
+          video={currentSegment.video}
+          handleVideoEnded={handleVideoEnded}
+        />
+      </div>
     </div>
   );
 };
