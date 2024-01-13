@@ -35,6 +35,7 @@ const Presentation = ({ segments, nextSceneSegments }) => {
     const nextSegment = segments.find(
       (segment) => segment.id === currentSegment.next_segment_id
     );
+    console.log("ABC handleVideo", currentSegment.next_segment_id);
 
     if (currentSegment.type === "assessment") {
       SpeechRecognition.startListening({ continuous: true });
@@ -44,28 +45,53 @@ const Presentation = ({ segments, nextSceneSegments }) => {
   };
 
   useEffect(() => {
-    console.log(currentSegment);
+    console.log("ABC", currentSegment);
     if (currentSegment.video) {
       document.querySelector("video").load();
       document.querySelector("video").play();
     }
   }, [currentSegment]);
 
+  // useEffect(() => {
+  //   console.log(transcript);
+  //   if (currentSegment.options?.includes(transcript)) {
+  //     SpeechRecognition.stopListening();
+
+  //     if (transcript === currentSegment.answer) {
+  //       nextSceneSegments(currentSegment.success_scene_id);
+  //     } else if(currentSegment.options?.includes(transcript))
+  //     {
+  //       nextSceneSegments(currentSegment.failure_scene_id);
+  //     }
+  //   }
+
+  //   resetTranscript();
+  // }, [transcript]);
+
   useEffect(() => {
+    console.log("ashgdh", currentSegment);
     console.log(transcript);
     if (currentSegment.options?.includes(transcript)) {
       SpeechRecognition.stopListening();
 
       if (transcript === currentSegment.answer) {
-        nextSceneSegments(currentSegment.success_scene_id);
-      } else if(currentSegment.options?.includes(transcript))
-      {
-        nextSceneSegments(currentSegment.failure_scene_id);
+        const successSegmentId = currentSegment.success_segment_id;
+        nextSceneSegments(successSegmentId);
+        console.log("GuruSuccess", currentSegment);
+        // nextSceneSegments(currentSegment.success_segment_id  );
+        // console.log("GuruSuccess", currentSegment.success_segment_id );
+      } else if (currentSegment.options?.includes(transcript)) {
+        const failureSegmentId = currentSegment.failure_segment_id;
+        nextSceneSegments(failureSegmentId);
+        console.log("GuruFail", failureSegmentId);
+        // nextSceneSegments(currentSegment.failure_segment_id);
+        // console.log("GuruFail", currentSegment.failure_segment_id  );
       }
     }
 
+    // console.log("SegmentsGp", segments);
     resetTranscript();
-  }, [transcript]);
+  }, [transcript, currentSegment]);
 
   return (
     <div className="Presentation">

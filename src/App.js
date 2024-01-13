@@ -9,6 +9,7 @@ function App() {
   const [scenes, setScenes] = useState([]);
   const [segments, setSegments] = useState([]);
 
+  
   useEffect(() => {
     const lectures = fetchLecture();
     setLecture(lectures);
@@ -47,7 +48,9 @@ function App() {
   const nextSceneSegments = (sceneId) => {
     const segments = fetchSegments(sceneId);
     setSegments(segments);
+    console.log("segments, APP",segments)
   };
+  console.log("segments, APP out",segments)
 
   return (
     <div className="App">
