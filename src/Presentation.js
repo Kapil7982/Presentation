@@ -15,6 +15,13 @@ const Presentation = ({ segments, nextSceneSegments }) => {
     setCurrentSegment(segments[0]);
   }, [segments]);
 
+  // useEffect(() =>{
+  //   if(segments.type === 'defenative'){
+  //     console.log("Definetive", currentSegment?.next_scene_id)
+  //     nextSceneSegments(currentSegment?.next_scene_id);
+  //   }
+  // },[currentSegment])
+
   const {
     transcript,
     listening,
@@ -36,8 +43,11 @@ const Presentation = ({ segments, nextSceneSegments }) => {
       (segment) => segment.id === currentSegment.next_segment_id
     );
 
-    if (currentSegment.type === "assessment") {
+    if (currentSegment?.type === "assessment") {
       SpeechRecognition.startListening({ continuous: true });
+    }else if(currentSegment?.type === 'defenative'){
+      console.log("Definetive", currentSegment?.next_scene_id)
+      nextSceneSegments(currentSegment?.next_scene_id);
     } else {
       setCurrentSegment(nextSegment);
     }
@@ -57,10 +67,17 @@ const Presentation = ({ segments, nextSceneSegments }) => {
       SpeechRecognition.stopListening();
 
       if (transcript === currentSegment.answer) {
-        nextSceneSegments(currentSegment.success_scene_id);
+        // nextSceneSegments(currentSegment.success_segment_id);
+        const nextSegment = segments.find(
+          (segment) => segment.id === currentSegment.success_segment_id
+        );
+        setCurrentSegment(nextSegment);
       } else if(currentSegment.options?.includes(transcript))
       {
-        nextSceneSegments(currentSegment.failure_scene_id);
+        const nextSegment = segments.find(
+          (segment) => segment.id === currentSegment.failure_segment_id
+        );
+        setCurrentSegment(nextSegment);
       }
     }
 
