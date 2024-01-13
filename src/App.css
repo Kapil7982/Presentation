@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   display: flex;
+  height: 100vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -22,13 +23,13 @@
   border: none;
   border-radius: 5px;
   font-size: 16px;
-  color: #fff;
-  background-color: #007bff;
+  color: #ffffff;
+  background-color: #ec0131;
   cursor: pointer;
 }
 
 .Lecture > button:hover {
-  background-color: #0056b3;
+  background-color: #C53030;
 }
 
 .Lecture > button:focus {

@@ -3,10 +3,41 @@
   height: 100vh;
   width: 100vw;
   border-radius: 10px;
+  /* border: px solid red; */
 }
 
 .Presentation video {
   width: 250px;
   height: 250px;
   border-radius: 250px;
+}
+.slides h1 {
+  color: red;
+  font-size: 48px;
+  text-decoration: underline;
+  margin-top: 3rem;
+}
+
+.slides h3 {
+  font-style: bold;
+  text-decoration: underline;
+}
+
+.slides strong {
+  text-decoration: underline;
+  font-weight: bold;
+  color: black;
+}
+.slides p {
+  font-size: 36px;
+  color: teal;
+}
+
+.slides li {
+  font-size: 24px;
+  text-transform: capitalize;
+}
+
+.slides ul {
+  list-style: none;
 }
