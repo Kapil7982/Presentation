@@ -2,7 +2,6 @@ import "./App.css";
 import Presentation from "./Presentation.js";
 import "./Presentation.css";
 import { useState, useEffect } from "react";
-// import presentationData from "./presentation-data.json";
 
 function App() {
   const [lecture, setLecture] = useState([]);

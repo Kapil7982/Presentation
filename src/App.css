@@ -2,6 +2,7 @@
   text-align: center;
   display: flex;
   height: 100vh;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -15,6 +16,7 @@
   justify-content: center;
   width: 100%;
 }
+
 
 .Lecture > button {
   margin: 10px;
@@ -31,6 +33,7 @@
 .Lecture > button:hover {
   background-color: #C53030;
 }
+
 
 .Lecture > button:focus {
   outline: none;

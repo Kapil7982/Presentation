@@ -281,10 +281,7 @@
       "slide": "<div><h1>It's Time for Basic Math in depth </h1><p>What is 100/5</p><ul><li>a) 20</li><li>b) 30</li><li>c) 50</li><li>d) 10</li></ul></div>",
       "type": "assessment",
       "next_segment_id": null,
-      "data": {
-        "answer": "20",
-        "options": ["20", "30", "50", "10"]
-      },
+      "data": { "answer": "20", "options": ["20", "30", "50", "10"] },
       "archived": false,
       "order": 2
     }

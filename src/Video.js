@@ -9,7 +9,7 @@ function Video({ video, handleVideoEnded }) {
   return (
     <>
       <Draggable className="zIndex" defaultPosition={{ x: 1200, y: -750 }}>
-        <div>
+        <div >
           <video className="video" autoPlay onEnded={handleVideoEnded}>
             {video && <source src={video} type="video/mp4" />}
           </video>
