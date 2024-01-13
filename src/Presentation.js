@@ -7,6 +7,7 @@ import "./Presentation.css";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import Video from "./Video";
 
 const Presentation = ({ segments, nextSceneSegments }) => {
   const [currentSegment, setCurrentSegment] = useState({});
@@ -14,13 +15,6 @@ const Presentation = ({ segments, nextSceneSegments }) => {
   useEffect(() => {
     setCurrentSegment(segments[0]);
   }, [segments]);
-
-  // useEffect(() =>{
-  //   if(segments.type === 'defenative'){
-  //     console.log("Definetive", currentSegment?.next_scene_id)
-  //     nextSceneSegments(currentSegment?.next_scene_id);
-  //   }
-  // },[currentSegment])
 
   const {
     transcript,
@@ -61,14 +55,16 @@ const Presentation = ({ segments, nextSceneSegments }) => {
   };
 
   useEffect(() => {
-    console.log(currentSegment);
+    console.log("ABC", currentSegment);
     if (currentSegment.video) {
       document.querySelector("video").load();
       document.querySelector("video").play();
     }
   }, [currentSegment]);
 
+
   useEffect(() => {
+    console.log("ashgdh", currentSegment);
     console.log(transcript);
     if (currentSegment.options?.includes(transcript)) {
       SpeechRecognition.stopListening();
@@ -87,8 +83,9 @@ const Presentation = ({ segments, nextSceneSegments }) => {
       }
     }
 
+    // console.log("SegmentsGp", segments);
     resetTranscript();
-  }, [transcript]);
+  }, [transcript, currentSegment]);
 
   return (
     <div className="Presentation">
@@ -100,13 +97,12 @@ const Presentation = ({ segments, nextSceneSegments }) => {
           ></section>
         </div>
       </div>
-      <Draggable defaultPosition={{ x: 640, y: -300 }}>
-        <video autoPlay onEnded={handleVideoEnded}>
-          {currentSegment.video && (
-            <source src={currentSegment.video} type="video/mp4" />
-          )}
-        </video>
-      </Draggable>
+      <div className="videoTag">
+        <Video
+          video={currentSegment.video}
+          handleVideoEnded={handleVideoEnded}
+        />
+      </div>
     </div>
   );
 };

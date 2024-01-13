@@ -9,6 +9,7 @@ function App() {
   const [scenes, setScenes] = useState([]);
   const [segments, setSegments] = useState([]);
 
+  
   useEffect(() => {
     fetchLecture().then((res) => setLecture(res));
     // setLecture(lectures);
@@ -64,7 +65,9 @@ function App() {
   const nextSceneSegments = async (sceneId) => {
     const segments = await fetchSegments(sceneId)
     setSegments(segments);
+    console.log("segments, APP",segments)
   };
+  console.log("segments, APP out",segments)
 
   return (
     <div className="App">
