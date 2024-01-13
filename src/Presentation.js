@@ -70,7 +70,6 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
       if (currentSegment?.type === "assessment") {
         SpeechRecognition.startListening({ continuous: true });
       } else if (currentSegment?.type === "feedback") {
-        // await nextSceneSegments(currentSegment?.next_scene_id);
         const next_step = JSON.parse(localStorage.getItem("next_scene"));
         const currentScene = findCurrentScene(next_step.scene_id, scenes);
         if (next_step.success) {
@@ -84,7 +83,6 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
     };
 
     useEffect(() => {
-      console.log("ABC", currentSegment);
       if (currentSegment.video) {
         document.querySelector("video").load();
         document.querySelector("video").play();
@@ -92,25 +90,20 @@ const Presentation = ({ segments, scenes, nextSceneSegments }) => {
     }, [currentSegment]);
 
     useEffect(() => {
-      console.log("ashgdh", currentSegment);
       console.log(transcript);
-      if (currentSegment.options?.includes(transcript)) {
+      if (currentSegment?.data?.options?.includes(transcript)) {
         SpeechRecognition.stopListening();
 
-        if (transcript == currentSegment.answer) {
-          // nextSceneSegments(currentSegment.success_segment_id);
-          const nextSegment = segments.find(
-            (segment) => segment.id == currentSegment.success_segment_id
-          );
-          setCurrentSegment(success_feedback);
+        if (transcript == currentSegment?.data?.answer) {
+          
           localStorage.setItem(
             "next_scene",
             JSON.stringify({ scene_id: currentSegment.scene_id, success: true })
-          );
-        } else if (currentSegment.options?.includes(transcript)) {
-          const nextSegment = segments.find(
-            (segment) => segment.id == currentSegment.failure_segment_id
-          );
+            );
+            setCurrentSegment(success_feedback);
+            console.log("success", currentSegment);
+        } else if (currentSegment?.data?.options?.includes(transcript)) {
+         
           setCurrentSegment(failure_feedback);
           localStorage.setItem(
             "next_scene",

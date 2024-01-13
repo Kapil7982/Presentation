@@ -12,7 +12,6 @@ function App() {
 
   useEffect(() => {
     fetchLecture().then((res) => setLecture(res));
-    // setLecture(lectures);
   }, []);
 
   const fetchLecture = async () => {
@@ -58,16 +57,13 @@ function App() {
     const scenes = await fetchScenes(lectureId);
     setScenes(scenes);
     const segments = await fetchSegments(scenes[0]?.id);
-    // console.log("segments",segments);
     setSegments(segments);
   };
 
   const nextSceneSegments = async (sceneId) => {
     const segments = await fetchSegments(sceneId)
     setSegments(segments);
-    console.log("segments, APP", segments)
   };
-  console.log("segments, APP out", segments)
 
   return (
     <div className="App border border-1 border-red-500" >
