@@ -83,7 +83,7 @@
       "scene_id": 1,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h3>Introduction</h3><p>Welcome to the world of blended learning. In this section, we'll explore the topic and its key concepts.</p></div>",
-      "order": 1,
+      "order": 0,
       "archived": false,
       "next_segment_id": 1,
       "data": null,
@@ -94,7 +94,7 @@
       "scene_id": 1,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h3>Addition</h3><p><strong>Definition:</strong> Addition is when you put together two or more numbers together to find the total amount. </p><p><strong>Example:</strong> 2 + 2 = 4</p> <p><strong>Example:</strong> 5 + 3 = 8</p></div>",
-      "order": 2,
+      "order": 1,
       "archived": false,
       "data": null,
       "next_segment_id": 2,
@@ -106,12 +106,32 @@
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
       "slide": "<div><h3>It's Time for Basic Math</h3><p>What is the sum of 2 and 8?</p><ul><li>a) 20</li><li>b) 11</li><li>c) 10</li><li>d) 14</li></ul></div>",
       "type": "assessment",
-      "order": 3,
+      "order": 2,
       "data": {
         "answer": "10",
         "options": ["20", "11", "10", "14"]
       },
       "archived": false
+    },
+    {
+      "id": 1231313222,
+      "scene_id": 1,
+      "type": "feedback",
+      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
+      "nextSegmentId": null,
+      "archived": false,
+      "order": 3
+    },
+    {
+      "id": 1231313222,
+      "scene_id": 1,
+      "type": "revisit",
+      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'>Oh,it seems there might be a bit of confusion. The correct answer is c) 10. No worries,let's revisit this topic again.</div>",
+      "nextSegmentId": null,
+      "archived": false,
+      "order": 4
     },
     {
       "id": 3,
@@ -137,7 +157,26 @@
       "archived": false,
       "order": 2
     },
-
+    {
+      "id": 1231313222,
+      "scene_id": 2,
+      "type": "feedback",
+      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+      "slide": "<div><img src='https://img.freepik.com/premium-vector/student-get-right-answer-illustration_561940-7.jpg' alt='Right Answer'><p>Great work, your answer is correct. Let's move on to the next topic.</p></div>",
+      "nextSegmentId": null,
+      "archived": false,
+      "order": 3
+    },
+    {
+      "id": 1231313222,
+      "scene_id": 2,
+      "type": "revisit",
+      "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
+      "slide": "<div><img src='https://cdni.iconscout.com/illustration/premium/thumb/student-get-wrong-answer-4910463-4086519.png' alt='Wrong Answer'>Oh, it seems there might be a bit of confusion. The correct answer is d) 14. No worries. Let's move to the next topic and revisit this later.</div>",
+      "nextSegmentId": null,
+      "archived": false,
+      "order": 4
+    },
     {
       "id": 5,
       "scene_id": 3,
