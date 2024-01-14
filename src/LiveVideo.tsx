@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+
 const LiveVideo = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isCameraOn, setIsCameraOn] = useState(true);
-  let mediaStream = null;
+  let mediaStream: MediaStream | null = null;
 
   const startCamera = async () => {
     try {
@@ -18,8 +19,16 @@ const LiveVideo = () => {
       console.error("Error accessing camera:", error);
     }
   };
+
   useEffect(() => {
     startCamera();
+    return () => {
+      // Cleanup function to stop the camera when the component unmounts
+      if (mediaStream) {
+        const tracks = mediaStream.getTracks();
+        tracks.forEach((track) => track.stop());
+      }
+    };
   }, []);
 
   return (
