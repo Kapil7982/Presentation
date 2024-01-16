@@ -42,6 +42,19 @@ const Presentation: React.FC<PresentationProps> = ({
     Segment | (() => Segment)
   >(() => ({} as Segment));
 
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const toggleFullScreen = () => {
+    setIsFullScreen(!isFullScreen);
+  };
+
+  useEffect(() => {
+    const current = getCurrentSegment();
+    if (current.video && isFullScreen) {
+      document.querySelector("video")?.requestFullscreen();
+    }
+  }, [isFullScreen, currentSegment]);
+
   useEffect(() => {
     setCurrentSegment(segments[0]);
   }, [segments]);
@@ -139,20 +152,26 @@ const Presentation: React.FC<PresentationProps> = ({
 
   return (
     <div className="Presentation">
-      <div className="reveal">
-        <div className="slides">
-          <section
-            style={{ height: "100%", width: "100%" }}
-            dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
-          ></section>
+      {/* <div className={`Presentation ${isFullScreen ? "full-screen" : ""}`}> */}
+        <div className="reveal">
+          <div className="slides">
+            <section
+              style={{ height: "100%", width: "100%" }}
+              dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
+            ></section>
+          </div>
         </div>
-      </div>
-      <div className="videoTag">
-        <Video
-          video={getCurrentSegment().video}
-          handleVideoEnded={handleVideoEnded}
-        />
-      </div>
+        <div className="videoTag">
+          <Video
+            video={getCurrentSegment().video}
+            handleVideoEnded={handleVideoEnded}
+          />
+        </div>
+        {/* <button className="fullscreen-button" onClick={toggleFullScreen}>
+          {isFullScreen ? "Exit Full Screen" : "Full Screen"}
+        </button>
+      </div> */}
+    
     </div>
   );
 };
