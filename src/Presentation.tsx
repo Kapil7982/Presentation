@@ -13,11 +13,13 @@ interface Segment {
   order: any;
   video: string;
   data: {
-    options: string[];
-    answer: string;
+    data: {
+      options: string[];
+      answer: string;
+    };
   };
   scene_id: number;
-  slide: string;
+  slide: { slide: string };
   success?: boolean;
 }
 
@@ -121,25 +123,25 @@ const Presentation: React.FC<PresentationProps> = ({
     console.log(transcript);
     const current = getCurrentSegment();
 
-    if (current?.data?.options?.includes(transcript)) {
+    if (current?.data?.data?.options?.includes(transcript)) {
       SpeechRecognition.stopListening();
 
-      if (transcript == current?.data?.answer) {
-        console.log("success");
+      if (transcript == current?.data?.data?.answer) {
+        console.log("success", current);
         const nextSegment = findResultSegment(3);
         console.log("next segment", nextSegment);
         localStorage.setItem(
           "next_scene",
-          JSON.stringify({ scene_id: current.scene_id, success: true })
+          JSON.stringify({ scene_id: current?.scene_id, success: true })
         );
         setCurrentSegment(nextSegment || ({} as Segment));
-      } else if (current?.data?.options?.includes(transcript)) {
+      } else if (current?.data?.data?.options?.includes(transcript)) {
         const nextSegment = findResultSegment(4);
         console.log("next segment", nextSegment);
         localStorage.setItem(
           "next_scene",
           JSON.stringify({
-            scene_id: current.scene_id,
+            scene_id: current?.scene_id,
             success: false,
           })
         );
@@ -153,25 +155,26 @@ const Presentation: React.FC<PresentationProps> = ({
   return (
     <div className="Presentation">
       {/* <div className={`Presentation ${isFullScreen ? "full-screen" : ""}`}> */}
-        <div className="reveal">
-          <div className="slides">
-            <section
-              style={{ height: "100%", width: "100%" }}
-              dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
-            ></section>
-          </div>
+      <div className="reveal">
+        <div className="slides">
+          <section
+            style={{ height: "100%", width: "100%" }}
+            dangerouslySetInnerHTML={{
+              __html: getCurrentSegment()?.slide?.slide,
+            }}
+          ></section>
         </div>
-        <div className="videoTag">
-          <Video
-            video={getCurrentSegment().video}
-            handleVideoEnded={handleVideoEnded}
-          />
-        </div>
-        {/* <button className="fullscreen-button" onClick={toggleFullScreen}>
+      </div>
+      <div className="videoTag">
+        <Video
+          video={getCurrentSegment().video}
+          handleVideoEnded={handleVideoEnded}
+        />
+      </div>
+      {/* <button className="fullscreen-button" onClick={toggleFullScreen}>
           {isFullScreen ? "Exit Full Screen" : "Full Screen"}
         </button>
       </div> */}
-    
     </div>
   );
 };

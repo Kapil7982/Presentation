@@ -1,0 +1,35 @@
+scalar DateTime
+scalar Json
+
+type scenes {
+  id: Int!
+  lecture_id: Int!
+  order: Int!
+  archived: Boolean!
+  successSceneId: Int
+  failureSceneId: Int
+  created_at: DateTime!
+  updated_at: DateTime!
+  segments: [segments!]!
+}
+
+type segments {
+  id: Int!
+  scene_id: Int!
+  video: String!
+  slide: Json
+  order: Int!
+  archived: Boolean!
+  type: String
+  nextSegmentId: Int
+  data: Json
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Query {
+  scenes: [scenes!]!
+  segments: [segments!]!
+  getScenesByLectureId(lectureId: Int!): [scenes!]!
+  getSegmentsBySceneId(sceneId: Int!): [segments!]!
+}
