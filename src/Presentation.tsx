@@ -128,7 +128,7 @@ const Presentation: React.FC<PresentationProps> = ({
 
       if (transcript == current?.data?.data?.answer) {
         console.log("success", current);
-        const nextSegment = findResultSegment(3);
+        const nextSegment = findResultSegment(current.order+1);
         console.log("next segment", nextSegment);
         localStorage.setItem(
           "next_scene",
@@ -136,7 +136,7 @@ const Presentation: React.FC<PresentationProps> = ({
         );
         setCurrentSegment(nextSegment || ({} as Segment));
       } else if (current?.data?.data?.options?.includes(transcript)) {
-        const nextSegment = findResultSegment(4);
+        const nextSegment = findResultSegment(current.order+2);
         console.log("next segment", nextSegment);
         localStorage.setItem(
           "next_scene",

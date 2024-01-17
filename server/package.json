@@ -10,9 +10,7 @@
     "prisma": "npx prisma",
     "generate": "npx prisma generate"
   },
-  "prisma": {
-    "schema": "./src/prisma/schema.prisma"
-  },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",

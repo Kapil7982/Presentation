@@ -76,7 +76,7 @@ function App() {
   const [segments, setSegments] = useState<any[]>([]);
 
   const startLecture = async () => {
-    const scenesData = await fetchScenes(1);
+    const scenesData = await fetchScenes(73739);
     setScenes(scenesData);
     console.log("scenes",scenesData)
     const segmentsData = await fetchSegments(scenesData[0]?.id);

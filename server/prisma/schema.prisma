@@ -1,0 +1,95 @@
+// Specify your database connection details
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+model lectures {
+  id       Int      @id @default(autoincrement()) @db.UnsignedInt
+  title    String   @db.VarChar(255)
+  category String   @db.VarChar(255)
+  type     String   @db.VarChar(255)
+  scenes   scenes[]
+}
+
+model scenes {
+  id             Int        @id @default(autoincrement()) @db.UnsignedInt
+  lecture_id     Int        @db.UnsignedInt
+  order          Int
+  archived       Boolean    @default(false)
+  successSceneId Int?       @db.UnsignedInt
+  failureSceneId Int?       @db.UnsignedInt
+  created_at     DateTime   @db.Timestamp(0)
+  updated_at     DateTime   @db.Timestamp(0)
+  segments       segments[]
+  user_scenes    user_scenes[]
+
+  lectures lectures @relation(fields: [lecture_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "scenes_lecture_id_foreign")
+
+  @@index([lecture_id], map: "scenes_lecture_id_foreign")
+}
+
+model segments {
+  id            Int      @id @default(autoincrement()) @db.UnsignedInt
+  scene_id      Int      @db.UnsignedInt
+  video         String?
+  slide         Json
+  order         Int
+  archived      Boolean  @default(false)
+  type          String
+  nextSegmentId Int?     @db.UnsignedInt
+  data          Json?
+  created_at    DateTime @db.Timestamp(0)
+  updated_at    DateTime @db.Timestamp(0)
+  user_segments user_segments[]
+
+
+  scenes scenes @relation(fields: [scene_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "segments_scene_id_foreign")
+
+  @@index([scene_id], map: "segments_scene_id_foreign")
+}
+
+model users {
+   id            BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
+  name           String     @db.VarChar(255)
+  email          String     @unique(map: "users_email_unique") @db.VarChar(255)
+  password       String     @db.VarChar(255)
+  created_at     DateTime?  @db.Timestamp(0)
+  updated_at     DateTime?  @db.Timestamp(0)
+  user_scenes    user_scenes[]
+  user_segments  user_segments[]
+
+  @@index([name], map: "idx_name")
+}
+
+model user_scenes {
+  id         Int      @id @default(autoincrement())
+  user_id    BigInt   @db.UnsignedBigInt
+  scene_id   Int      @db.UnsignedInt
+  created_at DateTime @db.Timestamp(0)
+  updated_at DateTime @db.Timestamp(0)
+
+  users  users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_scenes_user_id_foreign")
+  scenes scenes @relation(fields: [scene_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_scenes_scene_id_foreign")
+
+  @@index([scene_id], map: "user_scenes_scene_id_foreign")
+}
+
+model user_segments {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  user_id    BigInt   @db.UnsignedBigInt
+  segment_id Int      @db.UnsignedInt
+  data       Json?
+  created_at DateTime @db.Timestamp(0)
+  updated_at DateTime @db.Timestamp(0)
+
+  users    users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_segments_user_id_foreign")
+  segments segments @relation(fields: [segment_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_segments_segment_id_foreign")
+
+  @@index([segment_id], map: "user_segments_segment_id_foreign")
+}

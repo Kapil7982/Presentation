@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 import resolvers from './graphql/resolver';
-import { PrismaClient } from './prisma/generated/client';
+import { PrismaClient } from '../prisma/generated/client';
 
 dotenv.config();
 
