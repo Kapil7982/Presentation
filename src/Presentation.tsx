@@ -42,22 +42,7 @@ const Presentation: React.FC<PresentationProps> = ({
   const [currentSegment, setCurrentSegment] = useState<
     Segment | (() => Segment)
   >(() => ({} as Segment));
-
-  const [isFullScreen, setFullScreen] = useState<boolean>(false);
-
-  // const [isFullScreen, setIsFullScreen] = useState(false);
-
-  // const toggleFullScreen = () => {
-  //   setIsFullScreen(!isFullScreen);
-  // };
-
-  // useEffect(() => {
-  //   const current = getCurrentSegment();
-  //   if (current.video && isFullScreen) {
-  //     document.querySelector("video")?.requestFullscreen();
-  //   }
-  // }, [isFullScreen, currentSegment]);
-
+  
   useEffect(() => {
     setCurrentSegment(segments[0]);
   }, [segments]);
