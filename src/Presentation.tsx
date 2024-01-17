@@ -7,6 +7,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Video from "./Video";
+import FullScreenButton from "./FullScreenButton";
 
 interface Segment {
   type: any;
@@ -42,18 +43,20 @@ const Presentation: React.FC<PresentationProps> = ({
     Segment | (() => Segment)
   >(() => ({} as Segment));
 
-  const [isFullScreen, setIsFullScreen] = useState(false);
+  const [isFullScreen, setFullScreen] = useState<boolean>(false);
 
-  const toggleFullScreen = () => {
-    setIsFullScreen(!isFullScreen);
-  };
+  // const [isFullScreen, setIsFullScreen] = useState(false);
 
-  useEffect(() => {
-    const current = getCurrentSegment();
-    if (current.video && isFullScreen) {
-      document.querySelector("video")?.requestFullscreen();
-    }
-  }, [isFullScreen, currentSegment]);
+  // const toggleFullScreen = () => {
+  //   setIsFullScreen(!isFullScreen);
+  // };
+
+  // useEffect(() => {
+  //   const current = getCurrentSegment();
+  //   if (current.video && isFullScreen) {
+  //     document.querySelector("video")?.requestFullscreen();
+  //   }
+  // }, [isFullScreen, currentSegment]);
 
   useEffect(() => {
     setCurrentSegment(segments[0]);
@@ -153,25 +156,23 @@ const Presentation: React.FC<PresentationProps> = ({
   return (
     <div className="Presentation">
       {/* <div className={`Presentation ${isFullScreen ? "full-screen" : ""}`}> */}
-        <div className="reveal">
-          <div className="slides">
-            <section
-              style={{ height: "100%", width: "100%" }}
-              dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
-            ></section>
-          </div>
+      <div className="reveal">
+        <div className="slides">
+          <section
+            style={{ height: "100%", width: "100%" }}
+            dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
+          ></section>
         </div>
-        <div className="videoTag">
-          <Video
-            video={getCurrentSegment().video}
-            handleVideoEnded={handleVideoEnded}
-          />
-        </div>
-        {/* <button className="fullscreen-button" onClick={toggleFullScreen}>
-          {isFullScreen ? "Exit Full Screen" : "Full Screen"}
-        </button>
-      </div> */}
-    
+      </div>
+      <div className="videoTag">
+        <Video
+          video={getCurrentSegment().video}
+          handleVideoEnded={handleVideoEnded}
+        />
+      </div>
+      <div className="full-screen-button">
+        <FullScreenButton />
+      </div>
     </div>
   );
 };

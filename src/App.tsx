@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Presentation from "./Presentation";
 import "./Presentation.css";
 import { fetchScenes, fetchSegments } from "./api";
@@ -25,11 +25,10 @@ function App() {
     const segmentsData = await fetchSegments(sceneId);
     setSegments(segmentsData);
   };
-
   return (
     <div className="App">
-      <div className="Lecture ">
-        {segments.length == 0 ? (
+      <div className="Lecture">
+        {segments.length === 0 ? (
           <button
             className="hover:bg-ms-red-600"
             onClick={() => startLecture()}
@@ -38,13 +37,16 @@ function App() {
           </button>
         ) : null}
       </div>
-      {segments?.length > 0 && (
-        <Presentation
-          segments={segments}
-          scenes={scenes}
-          nextSceneSegments={nextSceneSegments}
-        />
-      )}
+
+      <div>
+        {segments?.length > 0 && (
+          <Presentation
+            segments={segments}
+            scenes={scenes}
+            nextSceneSegments={nextSceneSegments}
+          />
+        )}
+      </div>
     </div>
   );
 }
