@@ -1,15 +1,13 @@
 .Presentation {
-  text-align: center;
-  height: 90vh;
-  width: 90%;
-  margin: auto;
-  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  /* border: 2px solid red; */
+  text-align: center;
+  border: 2px solid red;
+  height: 100%;
+  width: 100%;
+  border: 5px solid green;
 }
 
 .Presentation video {
@@ -17,27 +15,21 @@
   height: 250px;
   border-radius: 250px;
 }
+
 .Presentation .slides img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 400px;
-  width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    height: 400px;
+    border-radius: 10px; 
 }
-
-/* img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 400px;
-  width: 60%;
-} */
 
 .slides h1 {
   color: red;
   font-size: 48px;
-  text-decoration: underline;
   margin-top: 3rem;
+  text-decoration: underline;
 }
 
 .slides h3 {
@@ -52,12 +44,12 @@
 }
 .slides p {
   font-size: 36px;
-  color: teal;
+    color: teal;
 }
 
 .slides li {
   font-size: 24px;
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .slides ul {

@@ -12,6 +12,7 @@ import {
   CreateUserSceneMutation,
   CreateUserSegmentMutation,
 } from '../graphql/mutations';
+import FullScreenButton from "./FullScreenButton"
 
 interface Segment {
   id: number;
@@ -209,6 +210,9 @@ const Presentation: React.FC<PresentationProps> = ({
           {isFullScreen ? "Exit Full Screen" : "Full Screen"}
         </button>
       </div> */}
+      <div className="full-screen-button">
+        <FullScreenButton />
+        </div>
     </div>
   );
 };
