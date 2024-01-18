@@ -1,0 +1,75 @@
+scalar DateTime
+scalar Json
+scalar BigInt
+
+type scenes {
+  id: Int!
+  lecture_id: Int!
+  order: Int!
+  archived: Boolean!
+  successSceneId: Int
+  failureSceneId: Int
+  created_at: DateTime!
+  updated_at: DateTime!
+  segments: [segments!]!
+}
+
+type segments {
+  id: Int!
+  scene_id: Int!
+  video: String!
+  slide: Json
+  order: Int!
+  archived: Boolean!
+  type: String
+  nextSegmentId: Int
+  data: Json
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Query {
+  scenes: [scenes!]!
+  segments: [segments!]!
+  getScenesByLectureId(lectureId: Int!): [scenes!]!
+  getSegmentsBySceneId(sceneId: Int!): [segments!]!
+}
+
+
+type Mutation {
+  createUser(name: String!, email: String!, password: String!): users!
+  createUserScene(userId: Int!, sceneId: Int!): UserScene!
+  createUserSegment(userId: Int!, segmentId: Int!, data: Json): UserSegment!
+}
+
+type users {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  created_at: DateTime
+  updated_at: DateTime
+  user_scenes: [UserScene!]!
+  user_segments: [UserSegment!]!
+}
+
+type UserScene {
+  id: Int!
+  user_id: Int!
+  scene_id: Int!
+  created_at: DateTime
+  updated_at: DateTime
+  users: [users!]!
+  scenes: [scenes!]!
+}
+
+type UserSegment {
+  id: Int!
+  user_id: Int!
+  segment_id: Int!
+  data: Json
+  created_at: DateTime
+  updated_at: DateTime
+  users: [users!]!
+  segments: [segments!]!
+}
