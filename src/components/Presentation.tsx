@@ -7,12 +7,12 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Video from "./Video";
-import { useMutation } from '@apollo/client';
+import { useMutation } from "@apollo/client";
 import {
   CreateUserSceneMutation,
   CreateUserSegmentMutation,
-} from '../graphql/mutations';
-import FullScreenButton from "./FullScreenButton"
+} from "../graphql/mutations";
+import FullScreenButton from "./FullScreenButton";
 
 interface Segment {
   id: number;
@@ -116,9 +116,7 @@ const Presentation: React.FC<PresentationProps> = ({
       await createUserSegment({
         variables: { userId: 58952, segmentId: current.id, data: current.data },
       });
-    } 
-    
-    else if (current.type == "feedback" || current.type == "revisit") {
+    } else if (current.type == "feedback" || current.type == "revisit") {
       await createUserSegment({
         variables: { userId: 58952, segmentId: current.id, data: current.data },
       });
@@ -161,21 +159,23 @@ const Presentation: React.FC<PresentationProps> = ({
     console.log(transcript);
     const current = getCurrentSegment();
 
-    if (current?.data?.data?.options?.includes(transcript) || current?.data?.data?.answer?.includes(transcript) ) {
+    if (
+      current?.data?.data?.options?.includes(transcript) ||
+      current?.data?.data?.answer?.includes(transcript)
+    ) {
       SpeechRecognition.stopListening();
 
       if (current?.data?.data?.answer.includes(transcript)) {
         console.log("success", current);
-        const nextSegment = findResultSegment(current.order+1);
+        const nextSegment = findResultSegment(current.order + 1);
         console.log("next segment", nextSegment);
         localStorage.setItem(
           "next_scene",
           JSON.stringify({ scene_id: current?.scene_id, success: true })
         );
         setCurrentSegment(nextSegment || ({} as Segment));
-
       } else if (current?.data?.data?.options?.includes(transcript)) {
-        const nextSegment = findResultSegment(current.order+2);
+        const nextSegment = findResultSegment(current.order + 2);
         console.log("next segment", nextSegment);
         localStorage.setItem(
           "next_scene",
@@ -198,7 +198,9 @@ const Presentation: React.FC<PresentationProps> = ({
           <section style={{ height: "100%", width: "100%" }}>
             <div
               className="innerHtml"
-              dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
+              dangerouslySetInnerHTML={{
+                __html: getCurrentSegment()?.slide?.slide,
+              }}
             ></div>
           </section>
         </div>
@@ -208,6 +210,9 @@ const Presentation: React.FC<PresentationProps> = ({
           video={getCurrentSegment().video}
           handleVideoEnded={handleVideoEnded}
         />
+      </div>
+      <div className="full-screen-button">
+        <FullScreenButton />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 import Draggable from "react-draggable";
-import LiveVideo from "./LiveVideo";
+import LiveVideo from "./components/LiveVideo";
 
 interface DraggableVideoProps {
   video: string;

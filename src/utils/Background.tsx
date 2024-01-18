@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./background.css";
-import parse from "html-react-parser";
+// import parse from "html-react-parser";
 type BackgroundProps = {
   children: React.ReactElement;
 };
@@ -15,6 +15,7 @@ const Background: React.FC<BackgroundProps> = ({ children }) => {
         <img
           src="https://masai-website-images.s3.ap-south-1.amazonaws.com/logo.png"
           alt=""
+          className="background-logo"
         />
         {children}
       </div>

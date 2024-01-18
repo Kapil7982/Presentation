@@ -4,7 +4,7 @@ import client from './graphql/client';
 import Presentation from './components/Presentation';
 
 
-import "./Presentation.css";
+import "./components/Presentation.css";
 import { fetchScenes, fetchSegments } from "./api";
 import Background from "./utils/Background";
 
