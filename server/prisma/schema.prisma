@@ -55,21 +55,21 @@ model segments {
 }
 
 model users {
-   id            BigInt     @id @default(autoincrement()) @db.UnsignedBigInt
-  name           String     @db.VarChar(255)
-  email          String     @unique(map: "users_email_unique") @db.VarChar(255)
-  password       String     @db.VarChar(255)
-  created_at     DateTime?  @db.Timestamp(0)
-  updated_at     DateTime?  @db.Timestamp(0)
-  user_scenes    user_scenes[]
-  user_segments  user_segments[]
+  id            Int      @id @default(autoincrement()) @db.UnsignedInt
+  name          String   @db.VarChar(255)
+  email         String   @unique(map: "users_email_unique") @db.VarChar(255)
+  password      String   @db.VarChar(255)
+  created_at    DateTime? @db.Timestamp(0)
+  updated_at    DateTime? @db.Timestamp(0)
+  user_scenes   user_scenes[]
+  user_segments user_segments[]
 
   @@index([name], map: "idx_name")
 }
 
 model user_scenes {
   id         Int      @id @default(autoincrement())
-  user_id    BigInt   @db.UnsignedBigInt
+  user_id    Int      @db.UnsignedInt
   scene_id   Int      @db.UnsignedInt
   created_at DateTime @db.Timestamp(0)
   updated_at DateTime @db.Timestamp(0)
@@ -81,8 +81,8 @@ model user_scenes {
 }
 
 model user_segments {
-  id         Int      @id @default(autoincrement()) @db.UnsignedInt
-  user_id    BigInt   @db.UnsignedBigInt
+  id         Int      @id @default(autoincrement())
+  user_id    Int      @db.UnsignedInt
   segment_id Int      @db.UnsignedInt
   data       Json?
   created_at DateTime @db.Timestamp(0)

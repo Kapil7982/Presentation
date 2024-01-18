@@ -4507,11 +4507,11 @@ export namespace Prisma {
   }
 
   export type UsersSumAggregateOutputType = {
-    id: bigint | null
+    id: number | null
   }
 
   export type UsersMinAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     name: string | null
     email: string | null
     password: string | null
@@ -4520,7 +4520,7 @@ export namespace Prisma {
   }
 
   export type UsersMaxAggregateOutputType = {
-    id: bigint | null
+    id: number | null
     name: string | null
     email: string | null
     password: string | null
@@ -4662,7 +4662,7 @@ export namespace Prisma {
   }
 
   export type UsersGroupByOutputType = {
-    id: bigint
+    id: number
     name: string
     email: string
     password: string
@@ -4724,7 +4724,7 @@ export namespace Prisma {
       user_segments: Prisma.$user_segmentsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
-      id: bigint
+      id: number
       name: string
       email: string
       password: string
@@ -5127,7 +5127,7 @@ export namespace Prisma {
    * Fields of the users model
    */ 
   interface usersFieldRefs {
-    readonly id: FieldRef<"users", 'BigInt'>
+    readonly id: FieldRef<"users", 'Int'>
     readonly name: FieldRef<"users", 'String'>
     readonly email: FieldRef<"users", 'String'>
     readonly password: FieldRef<"users", 'String'>
@@ -5522,13 +5522,13 @@ export namespace Prisma {
 
   export type User_scenesSumAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     scene_id: number | null
   }
 
   export type User_scenesMinAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     scene_id: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -5536,7 +5536,7 @@ export namespace Prisma {
 
   export type User_scenesMaxAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     scene_id: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -5677,7 +5677,7 @@ export namespace Prisma {
 
   export type User_scenesGroupByOutputType = {
     id: number
-    user_id: bigint
+    user_id: number
     scene_id: number
     created_at: Date
     updated_at: Date
@@ -5734,7 +5734,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      user_id: bigint
+      user_id: number
       scene_id: number
       created_at: Date
       updated_at: Date
@@ -6136,7 +6136,7 @@ export namespace Prisma {
    */ 
   interface user_scenesFieldRefs {
     readonly id: FieldRef<"user_scenes", 'Int'>
-    readonly user_id: FieldRef<"user_scenes", 'BigInt'>
+    readonly user_id: FieldRef<"user_scenes", 'Int'>
     readonly scene_id: FieldRef<"user_scenes", 'Int'>
     readonly created_at: FieldRef<"user_scenes", 'DateTime'>
     readonly updated_at: FieldRef<"user_scenes", 'DateTime'>
@@ -6487,13 +6487,13 @@ export namespace Prisma {
 
   export type User_segmentsSumAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     segment_id: number | null
   }
 
   export type User_segmentsMinAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     segment_id: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -6501,7 +6501,7 @@ export namespace Prisma {
 
   export type User_segmentsMaxAggregateOutputType = {
     id: number | null
-    user_id: bigint | null
+    user_id: number | null
     segment_id: number | null
     created_at: Date | null
     updated_at: Date | null
@@ -6644,7 +6644,7 @@ export namespace Prisma {
 
   export type User_segmentsGroupByOutputType = {
     id: number
-    user_id: bigint
+    user_id: number
     segment_id: number
     data: JsonValue | null
     created_at: Date
@@ -6704,7 +6704,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      user_id: bigint
+      user_id: number
       segment_id: number
       data: Prisma.JsonValue | null
       created_at: Date
@@ -7107,7 +7107,7 @@ export namespace Prisma {
    */ 
   interface user_segmentsFieldRefs {
     readonly id: FieldRef<"user_segments", 'Int'>
-    readonly user_id: FieldRef<"user_segments", 'BigInt'>
+    readonly user_id: FieldRef<"user_segments", 'Int'>
     readonly segment_id: FieldRef<"user_segments", 'Int'>
     readonly data: FieldRef<"user_segments", 'Json'>
     readonly created_at: FieldRef<"user_segments", 'DateTime'>
@@ -7610,13 +7610,6 @@ export namespace Prisma {
 
 
   /**
-   * Reference to a field of type 'BigInt'
-   */
-  export type BigIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BigInt'>
-    
-
-
-  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -7850,7 +7843,7 @@ export namespace Prisma {
     AND?: usersWhereInput | usersWhereInput[]
     OR?: usersWhereInput[]
     NOT?: usersWhereInput | usersWhereInput[]
-    id?: BigIntFilter<"users"> | bigint | number
+    id?: IntFilter<"users"> | number
     name?: StringFilter<"users"> | string
     email?: StringFilter<"users"> | string
     password?: StringFilter<"users"> | string
@@ -7872,7 +7865,7 @@ export namespace Prisma {
   }
 
   export type usersWhereUniqueInput = Prisma.AtLeast<{
-    id?: bigint | number
+    id?: number
     email?: string
     AND?: usersWhereInput | usersWhereInput[]
     OR?: usersWhereInput[]
@@ -7903,7 +7896,7 @@ export namespace Prisma {
     AND?: usersScalarWhereWithAggregatesInput | usersScalarWhereWithAggregatesInput[]
     OR?: usersScalarWhereWithAggregatesInput[]
     NOT?: usersScalarWhereWithAggregatesInput | usersScalarWhereWithAggregatesInput[]
-    id?: BigIntWithAggregatesFilter<"users"> | bigint | number
+    id?: IntWithAggregatesFilter<"users"> | number
     name?: StringWithAggregatesFilter<"users"> | string
     email?: StringWithAggregatesFilter<"users"> | string
     password?: StringWithAggregatesFilter<"users"> | string
@@ -7916,7 +7909,7 @@ export namespace Prisma {
     OR?: user_scenesWhereInput[]
     NOT?: user_scenesWhereInput | user_scenesWhereInput[]
     id?: IntFilter<"user_scenes"> | number
-    user_id?: BigIntFilter<"user_scenes"> | bigint | number
+    user_id?: IntFilter<"user_scenes"> | number
     scene_id?: IntFilter<"user_scenes"> | number
     created_at?: DateTimeFilter<"user_scenes"> | Date | string
     updated_at?: DateTimeFilter<"user_scenes"> | Date | string
@@ -7939,7 +7932,7 @@ export namespace Prisma {
     AND?: user_scenesWhereInput | user_scenesWhereInput[]
     OR?: user_scenesWhereInput[]
     NOT?: user_scenesWhereInput | user_scenesWhereInput[]
-    user_id?: BigIntFilter<"user_scenes"> | bigint | number
+    user_id?: IntFilter<"user_scenes"> | number
     scene_id?: IntFilter<"user_scenes"> | number
     created_at?: DateTimeFilter<"user_scenes"> | Date | string
     updated_at?: DateTimeFilter<"user_scenes"> | Date | string
@@ -7965,7 +7958,7 @@ export namespace Prisma {
     OR?: user_scenesScalarWhereWithAggregatesInput[]
     NOT?: user_scenesScalarWhereWithAggregatesInput | user_scenesScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"user_scenes"> | number
-    user_id?: BigIntWithAggregatesFilter<"user_scenes"> | bigint | number
+    user_id?: IntWithAggregatesFilter<"user_scenes"> | number
     scene_id?: IntWithAggregatesFilter<"user_scenes"> | number
     created_at?: DateTimeWithAggregatesFilter<"user_scenes"> | Date | string
     updated_at?: DateTimeWithAggregatesFilter<"user_scenes"> | Date | string
@@ -7976,7 +7969,7 @@ export namespace Prisma {
     OR?: user_segmentsWhereInput[]
     NOT?: user_segmentsWhereInput | user_segmentsWhereInput[]
     id?: IntFilter<"user_segments"> | number
-    user_id?: BigIntFilter<"user_segments"> | bigint | number
+    user_id?: IntFilter<"user_segments"> | number
     segment_id?: IntFilter<"user_segments"> | number
     data?: JsonNullableFilter<"user_segments">
     created_at?: DateTimeFilter<"user_segments"> | Date | string
@@ -8001,7 +7994,7 @@ export namespace Prisma {
     AND?: user_segmentsWhereInput | user_segmentsWhereInput[]
     OR?: user_segmentsWhereInput[]
     NOT?: user_segmentsWhereInput | user_segmentsWhereInput[]
-    user_id?: BigIntFilter<"user_segments"> | bigint | number
+    user_id?: IntFilter<"user_segments"> | number
     segment_id?: IntFilter<"user_segments"> | number
     data?: JsonNullableFilter<"user_segments">
     created_at?: DateTimeFilter<"user_segments"> | Date | string
@@ -8029,7 +8022,7 @@ export namespace Prisma {
     OR?: user_segmentsScalarWhereWithAggregatesInput[]
     NOT?: user_segmentsScalarWhereWithAggregatesInput | user_segmentsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"user_segments"> | number
-    user_id?: BigIntWithAggregatesFilter<"user_segments"> | bigint | number
+    user_id?: IntWithAggregatesFilter<"user_segments"> | number
     segment_id?: IntWithAggregatesFilter<"user_segments"> | number
     data?: JsonNullableWithAggregatesFilter<"user_segments">
     created_at?: DateTimeWithAggregatesFilter<"user_segments"> | Date | string
@@ -8266,7 +8259,6 @@ export namespace Prisma {
   }
 
   export type usersCreateInput = {
-    id?: bigint | number
     name: string
     email: string
     password: string
@@ -8277,7 +8269,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedCreateInput = {
-    id?: bigint | number
+    id?: number
     name: string
     email: string
     password: string
@@ -8288,7 +8280,6 @@ export namespace Prisma {
   }
 
   export type usersUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8299,7 +8290,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedUpdateInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8310,7 +8301,7 @@ export namespace Prisma {
   }
 
   export type usersCreateManyInput = {
-    id?: bigint | number
+    id?: number
     name: string
     email: string
     password: string
@@ -8319,7 +8310,6 @@ export namespace Prisma {
   }
 
   export type usersUpdateManyMutationInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8328,7 +8318,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedUpdateManyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -8345,7 +8335,7 @@ export namespace Prisma {
 
   export type user_scenesUncheckedCreateInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     scene_id: number
     created_at: Date | string
     updated_at: Date | string
@@ -8360,7 +8350,7 @@ export namespace Prisma {
 
   export type user_scenesUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     scene_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8368,7 +8358,7 @@ export namespace Prisma {
 
   export type user_scenesCreateManyInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     scene_id: number
     created_at: Date | string
     updated_at: Date | string
@@ -8381,7 +8371,7 @@ export namespace Prisma {
 
   export type user_scenesUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     scene_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8397,7 +8387,7 @@ export namespace Prisma {
 
   export type user_segmentsUncheckedCreateInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     segment_id: number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at: Date | string
@@ -8414,7 +8404,7 @@ export namespace Prisma {
 
   export type user_segmentsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     segment_id?: IntFieldUpdateOperationsInput | number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8423,7 +8413,7 @@ export namespace Prisma {
 
   export type user_segmentsCreateManyInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     segment_id: number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at: Date | string
@@ -8438,7 +8428,7 @@ export namespace Prisma {
 
   export type user_segmentsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     segment_id?: IntFieldUpdateOperationsInput | number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -8878,17 +8868,6 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
-  export type BigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -8933,22 +8912,6 @@ export namespace Prisma {
 
   export type usersSumOrderByAggregateInput = {
     id?: SortOrder
-  }
-
-  export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9304,14 +9267,6 @@ export namespace Prisma {
     connect?: user_segmentsWhereUniqueInput | user_segmentsWhereUniqueInput[]
   }
 
-  export type BigIntFieldUpdateOperationsInput = {
-    set?: bigint | number
-    increment?: bigint | number
-    decrement?: bigint | number
-    multiply?: bigint | number
-    divide?: bigint | number
-  }
-
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
@@ -9648,17 +9603,6 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
-  export type NestedBigIntFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntFilter<$PrismaModel> | bigint | number
-  }
-
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | null
@@ -9668,22 +9612,6 @@ export namespace Prisma {
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
-  export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    in?: bigint[] | number[]
-    notIn?: bigint[] | number[]
-    lt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    lte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gt?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    gte?: bigint | number | BigIntFieldRefInput<$PrismaModel>
-    not?: NestedBigIntWithAggregatesFilter<$PrismaModel> | bigint | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedBigIntFilter<$PrismaModel>
-    _min?: NestedBigIntFilter<$PrismaModel>
-    _max?: NestedBigIntFilter<$PrismaModel>
   }
 
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -9808,7 +9736,7 @@ export namespace Prisma {
 
   export type user_scenesUncheckedCreateWithoutScenesInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     created_at: Date | string
     updated_at: Date | string
   }
@@ -9895,7 +9823,7 @@ export namespace Prisma {
     OR?: user_scenesScalarWhereInput[]
     NOT?: user_scenesScalarWhereInput | user_scenesScalarWhereInput[]
     id?: IntFilter<"user_scenes"> | number
-    user_id?: BigIntFilter<"user_scenes"> | bigint | number
+    user_id?: IntFilter<"user_scenes"> | number
     scene_id?: IntFilter<"user_scenes"> | number
     created_at?: DateTimeFilter<"user_scenes"> | Date | string
     updated_at?: DateTimeFilter<"user_scenes"> | Date | string
@@ -9934,7 +9862,7 @@ export namespace Prisma {
 
   export type user_segmentsUncheckedCreateWithoutSegmentsInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at: Date | string
     updated_at: Date | string
@@ -9999,7 +9927,7 @@ export namespace Prisma {
     OR?: user_segmentsScalarWhereInput[]
     NOT?: user_segmentsScalarWhereInput | user_segmentsScalarWhereInput[]
     id?: IntFilter<"user_segments"> | number
-    user_id?: BigIntFilter<"user_segments"> | bigint | number
+    user_id?: IntFilter<"user_segments"> | number
     segment_id?: IntFilter<"user_segments"> | number
     data?: JsonNullableFilter<"user_segments">
     created_at?: DateTimeFilter<"user_segments"> | Date | string
@@ -10121,7 +10049,6 @@ export namespace Prisma {
   }
 
   export type usersCreateWithoutUser_scenesInput = {
-    id?: bigint | number
     name: string
     email: string
     password: string
@@ -10131,7 +10058,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedCreateWithoutUser_scenesInput = {
-    id?: bigint | number
+    id?: number
     name: string
     email: string
     password: string
@@ -10185,7 +10112,6 @@ export namespace Prisma {
   }
 
   export type usersUpdateWithoutUser_scenesInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10195,7 +10121,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedUpdateWithoutUser_scenesInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10239,7 +10165,6 @@ export namespace Prisma {
   }
 
   export type usersCreateWithoutUser_segmentsInput = {
-    id?: bigint | number
     name: string
     email: string
     password: string
@@ -10249,7 +10174,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedCreateWithoutUser_segmentsInput = {
-    id?: bigint | number
+    id?: number
     name: string
     email: string
     password: string
@@ -10307,7 +10232,6 @@ export namespace Prisma {
   }
 
   export type usersUpdateWithoutUser_segmentsInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10317,7 +10241,7 @@ export namespace Prisma {
   }
 
   export type usersUncheckedUpdateWithoutUser_segmentsInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
+    id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
@@ -10422,7 +10346,7 @@ export namespace Prisma {
 
   export type user_scenesCreateManyScenesInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     created_at: Date | string
     updated_at: Date | string
   }
@@ -10475,21 +10399,21 @@ export namespace Prisma {
 
   export type user_scenesUncheckedUpdateWithoutScenesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type user_scenesUncheckedUpdateManyWithoutScenesInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type user_segmentsCreateManySegmentsInput = {
     id?: number
-    user_id: bigint | number
+    user_id: number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at: Date | string
     updated_at: Date | string
@@ -10504,7 +10428,7 @@ export namespace Prisma {
 
   export type user_segmentsUncheckedUpdateWithoutSegmentsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -10512,7 +10436,7 @@ export namespace Prisma {
 
   export type user_segmentsUncheckedUpdateManyWithoutSegmentsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    user_id?: BigIntFieldUpdateOperationsInput | bigint | number
+    user_id?: IntFieldUpdateOperationsInput | number
     data?: NullableJsonNullValueInput | InputJsonValue
     created_at?: DateTimeFieldUpdateOperationsInput | Date | string
     updated_at?: DateTimeFieldUpdateOperationsInput | Date | string

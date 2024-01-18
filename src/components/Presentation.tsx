@@ -7,8 +7,14 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import Video from "./Video";
+import { useMutation } from '@apollo/client';
+import {
+  CreateUserSceneMutation,
+  CreateUserSegmentMutation,
+} from '../graphql/mutations';
 
 interface Segment {
+  id: number;
   type: any;
   order: any;
   video: string;
@@ -43,6 +49,12 @@ const Presentation: React.FC<PresentationProps> = ({
   const [currentSegment, setCurrentSegment] = useState<
     Segment | (() => Segment)
   >(() => ({} as Segment));
+
+  //MUTATIONS
+  const [createUserScene] = useMutation(CreateUserSceneMutation);
+  const [createUserSegment] = useMutation(CreateUserSegmentMutation);
+
+  const userId = BigInt(1);
 
   const [isFullScreen, setIsFullScreen] = useState(false);
 
@@ -96,17 +108,38 @@ const Presentation: React.FC<PresentationProps> = ({
 
     if (current.type == "assessment") {
       SpeechRecognition.startListening({ continuous: true });
-    } else if (current.type == "feedback" || current.type == "revisit") {
+      await createUserSegment({
+        variables: { userId: 58952, segmentId: current.id, data: current.data },
+      });
+    } 
+    
+    else if (current.type == "feedback" || current.type == "revisit") {
+      await createUserSegment({
+        variables: { userId: 58952, segmentId: current.id, data: current.data },
+      });
       const nextStep = JSON.parse(
         localStorage.getItem("next_scene")!
       ) as Segment;
       const currentScene = findCurrentScene(nextStep.scene_id);
+
       if (nextStep.success) {
+        // Call mutation to create user scene
+        await createUserScene({
+          variables: { userId: 58952, sceneId: currentScene?.id },
+        });
         await nextSceneSegments(currentScene?.successSceneId || 0);
       } else {
+        // Call mutation to create user scene
+        await createUserScene({
+          variables: { userId: 58952, sceneId: currentScene?.id },
+        });
         await nextSceneSegments(currentScene?.failureSceneId || 0);
       }
     } else {
+      // Call mutation to create user segment
+      await createUserSegment({
+        variables: { userId: 58952, segmentId: current.id, data: current.data },
+      });
       setCurrentSegment(getNextSegment() || ({} as Segment));
     }
   };
@@ -135,6 +168,7 @@ const Presentation: React.FC<PresentationProps> = ({
           JSON.stringify({ scene_id: current?.scene_id, success: true })
         );
         setCurrentSegment(nextSegment || ({} as Segment));
+
       } else if (current?.data?.data?.options?.includes(transcript)) {
         const nextSegment = findResultSegment(current.order+2);
         console.log("next segment", nextSegment);

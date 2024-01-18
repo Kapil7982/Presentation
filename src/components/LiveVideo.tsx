@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./App.css";
+import "../App.css";
 
 const LiveVideo = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);

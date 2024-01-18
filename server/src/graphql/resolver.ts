@@ -10,14 +10,14 @@ type CreateUserInput = {
 };
 
 type CreateUserSceneInput = {
-  userId: bigint | number;
+  userId: number;
   sceneId: number;
   created_at?: Date | string;
   updated_at?: Date | string;
 };
 
 type CreateUserSegmentInput = {
-  userId: bigint | number;
+  userId: number;
   segmentId: number;
   data?: any; // You can replace `any` with a more specific type based on your requirements
   created_at?: Date | string;
@@ -58,7 +58,7 @@ const resolvers = {
     createUserScene: async (_ : any, { userId, sceneId, created_at, updated_at }: CreateUserSceneInput) => {
       return prisma.user_scenes.create({
         data: {
-          user_id: userId as number | bigint,
+          user_id: userId,
           scene_id: sceneId,
           created_at: created_at || new Date(),
           updated_at: updated_at || new Date(),

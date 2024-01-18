@@ -1,5 +1,6 @@
 scalar DateTime
 scalar Json
+scalar BigInt
 
 type scenes {
   id: Int!
