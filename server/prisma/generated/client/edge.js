@@ -190,7 +190,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/mnt/c/Users/91830/Onedrive/Desktop/pres/Presentation/server/prisma/generated/client",
+      "value": "D:\\Projects\\ChatICon\\Presentation\\Presentation\\server\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -199,7 +199,7 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],

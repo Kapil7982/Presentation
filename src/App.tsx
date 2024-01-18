@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { GetScenesByLectureId, GetSegmentsBySceneId } from './graphql/queries'; // Import your queries
-import client from './graphql/client';
-import Presentation from './components/Presentation';
-
+import React, { useState } from "react";
+import { GetScenesByLectureId, GetSegmentsBySceneId } from "./graphql/queries"; // Import your queries
+import client from "./graphql/client";
+import Presentation from "./components/Presentation";
 
 import "./components/Presentation.css";
 import { fetchScenes, fetchSegments } from "./api";
 import Background from "./utils/Background";
+import FullScreenButton from "./components/FullScreenButton";
 
 interface Lecture {
   id: number;
@@ -26,7 +26,7 @@ function App() {
   const startLecture = async () => {
     const scenesData = await fetchScenes(73739);
     setScenes(scenesData);
-    console.log("scenes",scenesData)
+    console.log("scenes", scenesData);
     const segmentsData = await fetchSegments(scenesData[0]?.id);
     setSegments(segmentsData);
   };
@@ -40,7 +40,7 @@ function App() {
       // console.log("scenes", data);
       return data.getScenesByLectureId;
     } catch (error: any) {
-      console.error('Error fetching scenes:', error);
+      console.error("Error fetching scenes:", error);
       return null;
     }
   };
@@ -54,7 +54,7 @@ function App() {
       console.log("segments", data);
       return data.getSegmentsBySceneId;
     } catch (error: any) {
-      console.error('Error fetching segments:', error);
+      console.error("Error fetching segments:", error);
       return null;
     }
   };
@@ -85,6 +85,9 @@ function App() {
             logoUrl={logoUrl}
           />
         )}
+        <div className="full-screen-button">
+          <FullScreenButton />
+        </div>
       </div>
     </Background>
   );
