@@ -22,7 +22,7 @@ interface Segment {
   data: {
     data: {
       options: string[];
-      answer: string;
+      answer: string[];
     };
   };
   scene_id: number;
@@ -157,10 +157,10 @@ const Presentation: React.FC<PresentationProps> = ({
     console.log(transcript);
     const current = getCurrentSegment();
 
-    if (current?.data?.data?.options?.includes(transcript)) {
+    if (current?.data?.data?.options?.includes(transcript) || current?.data?.data?.answer?.includes(transcript) ) {
       SpeechRecognition.stopListening();
 
-      if (transcript == current?.data?.data?.answer) {
+      if (current?.data?.data?.answer.includes(transcript)) {
         console.log("success", current);
         const nextSegment = findResultSegment(current.order+1);
         console.log("next segment", nextSegment);
