@@ -40,13 +40,17 @@ interface PresentationProps {
   segments: Segment[];
   scenes: Scene[];
   nextSceneSegments: (sceneId: number) => void;
+  logoUrl: string;
 }
 
 const Presentation: React.FC<PresentationProps> = ({
   segments,
   scenes,
   nextSceneSegments,
+  logoUrl,
 }) => {
+  // ... (rest of your component remains unchanged)
+
   const [currentSegment, setCurrentSegment] = useState<
     Segment | (() => Segment)
   >(() => ({} as Segment));
@@ -189,15 +193,14 @@ const Presentation: React.FC<PresentationProps> = ({
 
   return (
     <div className="Presentation">
-      {/* <div className={`Presentation ${isFullScreen ? "full-screen" : ""}`}> */}
       <div className="reveal">
         <div className="slides">
-          <section
-            style={{ height: "100%", width: "100%" }}
-            dangerouslySetInnerHTML={{
-              __html: getCurrentSegment()?.slide?.slide,
-            }}
-          ></section>
+          <section style={{ height: "100%", width: "100%" }}>
+            <div
+              className="innerHtml"
+              dangerouslySetInnerHTML={{ __html: getCurrentSegment().slide }}
+            ></div>
+          </section>
         </div>
       </div>
       <div className="videoTag">
@@ -206,13 +209,6 @@ const Presentation: React.FC<PresentationProps> = ({
           handleVideoEnded={handleVideoEnded}
         />
       </div>
-      {/* <button className="fullscreen-button" onClick={toggleFullScreen}>
-          {isFullScreen ? "Exit Full Screen" : "Full Screen"}
-        </button>
-      </div> */}
-      <div className="full-screen-button">
-        <FullScreenButton />
-        </div>
     </div>
   );
 };

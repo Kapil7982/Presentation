@@ -1,13 +1,20 @@
 .Presentation {
+  
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  border: 2px solid red;
-  height: 100%;
-  width: 100%;
-  border: 5px solid green;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  /* border: 2px solid red; */
+  /* background-image: url("../imageTemp.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
 }
 
 .Presentation video {
@@ -54,4 +61,14 @@
 
 .slides ul {
   list-style: none;
+}
+
+code {
+  background-color: black;
+  color: white;
+}
+
+.innerHtml {
+  overflow: auto;
+  width: 100%;
 }

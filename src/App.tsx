@@ -3,7 +3,23 @@ import { GetScenesByLectureId, GetSegmentsBySceneId } from './graphql/queries'; 
 import client from './graphql/client';
 import Presentation from './components/Presentation';
 
+
+import "./Presentation.css";
+import { fetchScenes, fetchSegments } from "./api";
+import Background from "./utils/Background";
+
+interface Lecture {
+  id: number;
+  title: string;
+  type: string;
+}
+// Preleaf Image = "https://static.prepleaf.com/brand/prepleaf/prepleaf-dark.svg"
+
+//https://masai-website-images.s3.ap-south-1.amazonaws.com/logo.png
 function App() {
+  const [logoUrl, setLogoUrl] = useState<string>(
+    "https://static.prepleaf.com/brand/prepleaf/prepleaf-dark.svg"
+  );
   const [scenes, setScenes] = useState<any[]>([]);
   const [segments, setSegments] = useState<any[]>([]);
 
@@ -49,22 +65,28 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div className="Lecture ">
-        {segments?.length == 0 ? (
-          <button className="hover:bg-ms-red-600" onClick={() => startLecture()}>
-            Start Lecture
-          </button>
-        ) : null}
+    <Background>
+      <div className="App">
+        <div className="Lecture">
+          {segments.length === 0 ? (
+            <button
+              className="hover:bg-ms-red-600"
+              onClick={() => startLecture()}
+            >
+              Start Lecture
+            </button>
+          ) : null}
+        </div>
+        {segments?.length > 0 && (
+          <Presentation
+            segments={segments}
+            scenes={scenes}
+            nextSceneSegments={nextSceneSegments}
+            logoUrl={logoUrl}
+          />
+        )}
       </div>
-      {segments?.length > 0 && (
-        <Presentation
-          segments={segments}
-          scenes={scenes}
-          nextSceneSegments={nextSceneSegments}
-        />
-      )}
-    </div>
+    </Background>
   );
 }
 
