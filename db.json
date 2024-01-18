@@ -104,7 +104,7 @@
       "id": 2,
       "scene_id": 1,
       "video": "https://temp-ai-labs.s3.ap-south-1.amazonaws.com/demo/Scene+1.0/s1seg3.mp4",
-      "slide": "<div><h3>It's Time for Basic Math</h3><p>What is the sum of 2 and 8?</p><ul><li>a) 20</li><li>b) 11</li><li>c) 10</li><li>d) 14</li></ul></div>",
+      "slide": {"slide":"<div><h3>It's Time for Basic Math</h3><p>What is the sum of 2 and 8?</p><ul><li>a) 20</li><li>b) 11</li><li>c) 10</li><li>d) 14</li></ul></div>"},
       "type": "assessment",
       "order": 2,
       "data": {
