@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./background.css";
-// import parse from "html-react-parser";
 type BackgroundProps = {
   children: React.ReactElement;
 };
