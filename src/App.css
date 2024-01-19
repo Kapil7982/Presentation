@@ -12,9 +12,11 @@
   position: relative;
   font-family: "Poppins", sans-serif !important;
 }
+
 ul li {
   list-style: none;
 }
+
 .Lecture {
   display: flex;
   flex-direction: column;
@@ -23,7 +25,7 @@ ul li {
   width: 100%;
 }
 
-.Lecture > button {
+.Lecture>button {
   margin: 10px;
   background-color: beige;
   padding: 10px 20px;
@@ -35,11 +37,11 @@ ul li {
   cursor: pointer;
 }
 
-.Lecture > button:hover {
+.Lecture>button:hover {
   background-color: #c53030;
 }
 
-.Lecture > button:focus {
+.Lecture>button:focus {
   outline: none;
   box-shadow: 0 0 0 2px #007bff;
 }
@@ -48,10 +50,12 @@ ul li {
   position: absolute;
   z-index: 1;
 }
+
 .videoTag {
-  position: absolute; 
+  position: absolute;
   z-index: 2;
 }
+
 .video {
   /* border: 2px solid black; */
   padding: 2px;

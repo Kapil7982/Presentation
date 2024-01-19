@@ -191,7 +191,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/mnt/c/Users/91830/Onedrive/Desktop/pres/Presentation/server/prisma/generated/client",
+      "value": "/mnt/d/presentation/server/prisma/generated/client",
       "fromEnvVar": null
     },
     "config": {
