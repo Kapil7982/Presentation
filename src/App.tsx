@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GetScenesByLectureId, GetSegmentsBySceneId } from "./graphql/queries"; // Import your queries
 import client from "./graphql/client";
-import Presentation from "./components/Presentation";
-
-import "./components/Presentation.css";
-import { fetchScenes, fetchSegments } from "./api";
+// import Presentation from "./components/persentation/Presentation";
+import "./components/presentation/Presentation.css";
 import Background from "./utils/Background";
-import FullScreenButton from "./components/FullScreenButton";
+import FullScreenButton from "./components/full-screen/FullScreenButton";
+import Presentation_2 from "./components/presentation/Presentation_2";
 
 interface Lecture {
   id: number;
@@ -22,6 +21,7 @@ function App() {
   );
   const [scenes, setScenes] = useState<any[]>([]);
   const [segments, setSegments] = useState<any[]>([]);
+  const [isVictorySignShown, setIsVictorySignShown] = useState(false);
 
   const startLecture = async () => {
     const scenesData = await fetchScenes(73739);
@@ -30,7 +30,6 @@ function App() {
     const segmentsData = await fetchSegments(scenesData[0]?.id);
     setSegments(segmentsData);
   };
-
   const fetchScenes = async (id: number) => {
     try {
       const { data } = await client.query({
@@ -64,6 +63,18 @@ function App() {
     setSegments(segmentsData);
   };
 
+  // useEffect(() => {
+
+  // Cleanup on component unmount
+  // return () => {
+  //   if (annyang) {
+  //     // Remove commands and stop listening
+  //     (annyang as Annyang).removeCommands();
+  //     (annyang as Annyang).abort();
+  //   }
+  // };
+  // }, []);
+
   return (
     <Background>
       <div className="App">
@@ -78,11 +89,10 @@ function App() {
           ) : null}
         </div>
         {segments?.length > 0 && (
-          <Presentation
+          <Presentation_2
             segments={segments}
             scenes={scenes}
             nextSceneSegments={nextSceneSegments}
-            logoUrl={logoUrl}
           />
         )}
         <div className="full-screen-button">
