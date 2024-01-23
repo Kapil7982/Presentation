@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import "./Presentation.css"
+import "./Presentation.css";
 
-interface MicProps{
-    setTranscript: React.Dispatch<React.SetStateAction<string>>;
-    isAssessment: boolean;
-} 
+interface MicProps {
+  setTranscript: React.Dispatch<React.SetStateAction<string>>;
+  isAssessment: boolean;
+}
 
-const MicButton: React.FC<MicProps> = ({ isAssessment, setTranscript}) => {
+const MicButton: React.FC<MicProps> = ({ isAssessment, setTranscript }) => {
   const [isMicOn, setIsMicOn] = useState<boolean>(false);
   const [timer, setTimer] = useState<number | null>(null);
-//   const [transcription, setTranscription] = useState<string>("");
+  //   const [transcription, setTranscription] = useState<string>("");
 
   const handleButtonClick = () => {
     setIsMicOn(true);
@@ -17,7 +17,8 @@ const MicButton: React.FC<MicProps> = ({ isAssessment, setTranscript}) => {
     setTranscript("");
 
     const SpeechRecognition =
-      (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
+      (window as any).SpeechRecognition ||
+      (window as any).webkitSpeechRecognition;
     const recognition = new SpeechRecognition();
     recognition.lang = "en-US";
 
@@ -52,22 +53,36 @@ const MicButton: React.FC<MicProps> = ({ isAssessment, setTranscript}) => {
     };
   }, [timer]);
 
-  
- 
-
   return (
     <>
-      <button className="mic-btn" onClick={handleButtonClick} disabled={!isAssessment}>
-        {isMicOn ? "Mic On" : "Mic Off"}
+      <button
+        className="mic-btn"
+        onClick={handleButtonClick}
+        disabled={!isAssessment}
+      >
+        {isMicOn ? (
+          <div style={{ display: "flex", alignItems: "center" }}>
+            {" "}
+            <i className="ri-speak-fill"></i>
+            <p style={{ fontSize: "10px", fontWeight: "400" }}>Mic On</p>
+          </div>
+        ) : (
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <i className="ri-volume-off-vibrate-fill"></i>
+            <p style={{ fontSize: "10px", fontWeight: "400" }}>Mic Off</p>
+          </div>
+        )}
       </button>
-      {timer !== null && <p>Time remaining: {timer} seconds</p>}
+      <p className="mic-start-timer">
+        {" "}
+        {timer !== null && (
+          <p>
+            <b> {timer}</b> Seconds
+          </p>
+        )}
+      </p>
     </>
   );
 };
 
 export default MicButton;
-
-
-
-
-

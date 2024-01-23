@@ -1,5 +1,4 @@
 .Presentation {
-  
   text-align: center;
   height: 100%;
   width: 100%;
@@ -25,11 +24,11 @@
 
 .Presentation .slides img {
   display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    height: 400px;
-    border-radius: 10px; 
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  height: 400px;
+  border-radius: 10px;
 }
 
 .slides h1 {
@@ -51,12 +50,12 @@
 }
 .slides p {
   font-size: 36px;
-    color: teal;
+  color: teal;
 }
 
 .slides li {
   font-size: 24px;
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 
 .slides ul {
@@ -73,15 +72,23 @@ code {
   width: 100%;
 }
 
+.bottom-buttons {
+  display: flex;
+  justify-content: center;
+  border: "1px solid red";
+  position: absolute;
+  bottom: 100px;
+}
+.mic-start-timer {
+  position: absolute;
+  top: -50px;
+  left: 20;
+}
 
 .mic-btn {
-  position: absolute;
-  right: 50px;
-  bottom: 300px;
   z-index: 999;
   width: max-content;
   height: max-content;
-  /* border:1px solid red; */
   margin: 10px;
   background-color: beige;
   padding: 5px 10px;
@@ -95,7 +102,6 @@ code {
 
 @media (max-width: 600px) {
   .mic-btn {
-    right: 0;
     bottom: 100px;
   }
 }
