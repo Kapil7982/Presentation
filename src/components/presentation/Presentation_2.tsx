@@ -11,6 +11,7 @@ import "./Presentation.css";
 import Video from "../video/Video";
 import MicButton from "./MicButton";
 import FullScreenButton from "../full-screen/FullScreenButton";
+import ReactMarkdown from "react-markdown";
 
 interface Segment {
   id: number;
@@ -188,12 +189,14 @@ const Presentation_2: React.FC<PresentationProps> = ({
       <div className="reveal">
         <div className="slides">
           <section style={{ height: "100%", width: "100%" }}>
-            <div
+            {/* <div
               className="innerHtml"
               dangerouslySetInnerHTML={{
                 __html: getCurrentSegment()?.slide?.slide,
               }}
-            ></div>
+            ></div> */}
+             {/* Use ReactMarkdown to render the Markdown content */}
+             <ReactMarkdown className="innerHtml">{getCurrentSegment()?.slide?.slide}</ReactMarkdown>
           </section>
         </div>
       </div>
