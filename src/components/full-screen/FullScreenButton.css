@@ -6,9 +6,9 @@ body {
 } */
 
 .FlsBtn {
-  position: absolute;
-  right: 50px;
-  bottom: 100px;
+  /* position: absolute; */
+  /* right: 50%; */
+  /* bottom: 100px; */
   z-index: 999;
   width: max-content;
   height: max-content;
@@ -26,7 +26,7 @@ body {
 
 @media (max-width: 600px) {
   .FlsBtn {
-    right: 0;
+    /* right: 0; */
     bottom: 100px;
   }
 }
