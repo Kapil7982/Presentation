@@ -4,7 +4,7 @@ import client from "./graphql/client";
 // import Presentation from "./components/persentation/Presentation";
 import "./components/presentation/Presentation.css";
 import Background from "./utils/Background";
-import FullScreenButton from "./components/full-screen/FullScreenButton";
+import FullScreenButton from "./components/fullScreen/FullScreenButton";
 import Presentation_2 from "./components/presentation/Presentation_2";
 
 interface Lecture {
