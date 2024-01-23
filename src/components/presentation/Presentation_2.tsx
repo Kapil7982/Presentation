@@ -10,6 +10,7 @@ import "reveal.js/dist/theme/white.css";
 import "./Presentation.css";
 import Video from "../video/Video";
 import MicButton from "./MicButton";
+import FullScreenButton from "../full-screen/FullScreenButton";
 
 interface Segment {
   id: number;
@@ -202,9 +203,14 @@ const Presentation_2: React.FC<PresentationProps> = ({
           handleVideoEnded={handleVideoEnded}
         />
       </div>
+      <div className="bottom-buttons">
         <MicButton isAssessment={isAssessment} setTranscript={setTranscript} />
+        <FullScreenButton/>
+        
+      </div>
     </div>
   );
 };
 
+// style={{display:"flex", alignItems:"center", }}
 export default Presentation_2;

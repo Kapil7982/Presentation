@@ -63,18 +63,6 @@ function App() {
     setSegments(segmentsData);
   };
 
-  // useEffect(() => {
-
-  // Cleanup on component unmount
-  // return () => {
-  //   if (annyang) {
-  //     // Remove commands and stop listening
-  //     (annyang as Annyang).removeCommands();
-  //     (annyang as Annyang).abort();
-  //   }
-  // };
-  // }, []);
-
   return (
     <Background>
       <div className="App">
@@ -95,9 +83,9 @@ function App() {
             nextSceneSegments={nextSceneSegments}
           />
         )}
-        <div className="full-screen-button">
+        {/* <div className="full-screen-button">
           <FullScreenButton />
-        </div>
+        </div> */}
       </div>
     </Background>
   );
