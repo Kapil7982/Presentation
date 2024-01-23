@@ -61,14 +61,16 @@ const MicButton: React.FC<MicProps> = ({ isAssessment, setTranscript }) => {
         disabled={!isAssessment}
       >
         {isMicOn ? (
-          <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ display: "flex", alignItems: "center", gap:"10px" }}>
             {" "}
-            <i className="ri-speak-fill"></i>
+            {/* <i className="ri-speak-fill"></i> */}
+            <i className="fa-solid fa-microphone"></i>
             <p style={{ fontSize: "10px", fontWeight: "400" }}>Mic On</p>
           </div>
         ) : (
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <i className="ri-volume-off-vibrate-fill"></i>
+          <div style={{ display: "flex", alignItems: "center", gap:"10px" }}>
+            {/* <i className="ri-volume-off-vibrate-fill"></i> */}
+            <i className="fa-solid fa-microphone-slash"></i>
             <p style={{ fontSize: "10px", fontWeight: "400" }}>Mic Off</p>
           </div>
         )}

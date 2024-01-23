@@ -49,14 +49,14 @@ const FullScreenButton: React.FC = () => {
   return (
     <button className="FlsBtn" onClick={toggleFullScreen}>
       {isFullScreen ? (
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", gap:"5px" }}>
           <i className="ri-fullscreen-exit-line"></i>
           <p style={{ fontSize: "10px", fontWeight: "400" }}>
             Exit Full Screen
           </p>
         </div>
       ) : (
-        <div style={{ display: "flex", alignItems: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", gap:"5px" }}>
           <i className="ri-fullscreen-line"></i>{" "}
           <p style={{ fontSize: "10px", fontWeight: "400" }}>Full Screen</p>
         </div>
