@@ -1,18 +1,7 @@
-/* html,
-body {
-  height: 100%;
-  margin: 0;
-  overflow: hidden;
-} */
-
 .FlsBtn {
-  /* position: absolute; */
-  /* right: 50%; */
-  /* bottom: 100px; */
   z-index: 999;
   width: max-content;
   height: max-content;
-  /* border:1px solid red; */
   margin: 10px;
   background-color: beige;
   padding: 5px 10px;
@@ -26,7 +15,6 @@ body {
 
 @media (max-width: 600px) {
   .FlsBtn {
-    /* right: 0; */
     bottom: 100px;
   }
 }
