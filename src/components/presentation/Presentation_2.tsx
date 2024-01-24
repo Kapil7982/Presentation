@@ -188,15 +188,15 @@ const Presentation_2: React.FC<PresentationProps> = ({
     <div className="Presentation">
       <div className="reveal">
         <div className="slides">
-          <section style={{ height: "100%", width: "100%" }}>
+          <section data-markdown style={{ height: "100%", width: "100%" }}>
             {/* <div
               className="innerHtml"
               dangerouslySetInnerHTML={{
                 __html: getCurrentSegment()?.slide?.slide,
               }}
             ></div> */}
-             {/* Use ReactMarkdown to render the Markdown content */}
-             <ReactMarkdown className="innerHtml">{getCurrentSegment()?.slide?.slide}</ReactMarkdown>
+           {/* Use ReactMarkdown to render the Markdown content */}
+           <ReactMarkdown className="innerHtml">{getCurrentSegment()?.slide?.slide}</ReactMarkdown>
           </section>
         </div>
       </div>

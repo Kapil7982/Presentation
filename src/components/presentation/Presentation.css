@@ -33,9 +33,12 @@
 
 .slides h1 {
   color: red;
-  font-size: 48px;
+  font-size: 28px;
   margin-top: 3rem;
   text-decoration: underline;
+}
+.slides h2{
+  font-size: 36px !important;
 }
 
 .slides h3 {
