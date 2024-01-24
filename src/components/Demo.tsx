@@ -11,19 +11,20 @@ interface UserScenes {
 const Demo = () => {
   const [data, setData] = useState<UserScenes[]>();
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-
+  console.log("Guru Data Out", data);
+  
   const fetchUsersPerScene = async () => {
     try {
       const { data, errors } = await client.query({
         query: GetUsersPerScene,
       });
+      console.log("Guru Data", data);
 
       if (errors) {
         console.error("GraphQL Errors:", errors);
       }
 
       if (data) {
-        console.log("Guru Data", data);
         setData(data.getUsersPerScene);
         console.log("Users per scene:", data.getUsersPerScene);
       }
@@ -52,8 +53,8 @@ const Demo = () => {
               {
                 label: "Users per Scene",
                 data: users,
-                backgroundColor: "rgba(75,192,192,0.2)",
-                borderColor: "rgba(75,192,192,1)",
+                backgroundColor: ["rgba(178, 222, 39)", "rgba(255, 0, 0, 1)"],
+                // borderColor: "rgba(255, 0, 0, 1)",
                 borderWidth: 1,
               },
             ],

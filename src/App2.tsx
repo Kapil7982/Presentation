@@ -10,7 +10,6 @@ import "./components/presentation/Presentation.css";
 import Background from "./utils/Background";
 import FullScreenButton from "./components/fullScreen/FullScreenButton";
 import Presentation_2 from "./components/presentation/Presentation_2";
-import Demo from "./components/Demo";
 import { Link } from "react-router-dom";
 
 interface Lecture {
