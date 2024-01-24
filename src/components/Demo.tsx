@@ -10,18 +10,19 @@ interface userScenes {
 
 const Demo = () => {
     const [ data, setData ] = useState<userScenes[]>();
-
+    
     const fetchUsersPerScene = async () => {
         try {
           const { data, errors } = await client.query({
             query: GetUsersPerScene,
           });
-      
+
           if (errors) {
             console.error("GraphQL Errors:", errors);
           }
       
-          if (data) {
+          if (data && data.getUsersPerScene) {
+            console.log("Guru Data", data);
             setData(data.getUsersPerScene);
             console.log("Users per scene:", data.getUsersPerScene);
           }
@@ -31,8 +32,10 @@ const Demo = () => {
       };
 
       useEffect(() => {
-        fetchUsersPerScene().then(res => console.log(data));
-      }, [data])
+        fetchUsersPerScene().then(() => {
+            console.log(data);
+        });
+    }, [data]);
 
 
   return <div>Demo</div>;

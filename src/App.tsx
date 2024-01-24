@@ -6,6 +6,7 @@ import "./components/presentation/Presentation.css";
 import Background from "./utils/Background";
 import FullScreenButton from "./components/fullScreen/FullScreenButton";
 import Presentation_2 from "./components/presentation/Presentation_2";
+import Demo from "./components/Demo";
 
 interface Lecture {
   id: number;
@@ -36,7 +37,7 @@ function App() {
         query: GetScenesByLectureId,
         variables: { lectureId: id },
       });
-      // console.log("scenes", data);
+      // console.log("scenes--->", data);
       return data.getScenesByLectureId;
     } catch (error: any) {
       console.error("Error fetching scenes:", error);
@@ -87,6 +88,7 @@ function App() {
         {/* <div className="full-screen-button">
           <FullScreenButton />
         </div> */}
+        <Demo/>
       </div>
     </Background>
   );
