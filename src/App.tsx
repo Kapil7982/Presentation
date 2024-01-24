@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { GetScenesByLectureId, GetSegmentsBySceneId } from "./graphql/queries"; // Import your queries
+import { GetScenesByLectureId, GetSegmentsBySceneId, GetUsersPerScene } from "./graphql/queries"; // Import your queries
 import client from "./graphql/client";
 // import Presentation from "./components/persentation/Presentation";
 import "./components/presentation/Presentation.css";
@@ -21,7 +21,6 @@ function App() {
   );
   const [scenes, setScenes] = useState<any[]>([]);
   const [segments, setSegments] = useState<any[]>([]);
-  const [isVictorySignShown, setIsVictorySignShown] = useState(false);
 
   const startLecture = async () => {
     const scenesData = await fetchScenes(73739);
@@ -29,6 +28,7 @@ function App() {
     console.log("scenes", scenesData);
     const segmentsData = await fetchSegments(scenesData[0]?.id);
     setSegments(segmentsData);
+    // await fetchUsersPerScene();
   };
   const fetchScenes = async (id: number) => {
     try {
@@ -57,6 +57,7 @@ function App() {
       return null;
     }
   };
+
 
   const nextSceneSegments = async (sceneId: any) => {
     const segmentsData = await fetchSegments(sceneId);

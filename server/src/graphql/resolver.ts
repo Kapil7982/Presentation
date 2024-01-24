@@ -24,6 +24,12 @@ type CreateUserSegmentInput = {
   updated_at?: Date | string;
 };
 
+interface SceneUserCount {
+  scene_id: number;
+  users: number;
+  order: number;
+}
+
 
 const resolvers = {
   Query: {
@@ -43,6 +49,41 @@ const resolvers = {
           scene_id: sceneId,
         },
       });
+    },
+    getUsersPerScene: async (): Promise<SceneUserCount[]> => {
+      try {
+        const userScenes = await prisma.user_scenes.findMany({
+          include: {
+            scenes: {
+              select: {
+                id: true,
+                order: true,
+              },
+            },
+          },
+        });
+
+        const result: Record<number, SceneUserCount> = {};
+
+        userScenes.forEach((userScene) => {
+          const sceneId = userScene.scene_id;
+          const usersCount = result[sceneId] ? result[sceneId].users + 1 : 1;
+          const order = userScene.scenes?.order || 0; // Use optional chaining to handle the possibility of scenes being null
+
+          result[sceneId] = {
+            scene_id: sceneId,
+            users: usersCount,
+            order: order,
+          };
+        });
+
+        const resultArray: SceneUserCount[] = Object.values(result);
+
+        return resultArray;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+      }
     },
   },
   Mutation: {

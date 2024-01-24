@@ -33,6 +33,7 @@ type Query {
   segments: [segments!]!
   getScenesByLectureId(lectureId: Int!): [scenes!]!
   getSegmentsBySceneId(sceneId: Int!): [segments!]!
+  getUsersPerScene: [SceneUserCount]
 }
 
 
@@ -72,4 +73,10 @@ type UserSegment {
   updated_at: DateTime
   users: [users!]!
   segments: [segments!]!
+}
+
+type SceneUserCount {
+  scene_id: Int
+  users: Int
+  order: Int
 }

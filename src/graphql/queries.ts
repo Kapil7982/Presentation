@@ -43,3 +43,13 @@ export const GetSegmentsBySceneId = gql`
     }
   }
 `;
+
+export const GetUsersPerScene = gql`
+  query GetUsersPerScene {
+    getUsersPerScene {
+      scene_id
+      users
+      order
+    }
+  }
+`;

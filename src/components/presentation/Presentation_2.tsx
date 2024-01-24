@@ -10,7 +10,7 @@ import "reveal.js/dist/theme/white.css";
 import "./Presentation.css";
 import Video from "../video/Video";
 import MicButton from "./MicButton";
-import FullScreenButton from "../full-screen/FullScreenButton";
+import FullScreenButton from "../fullScreen/FullScreenButton";
 
 interface Segment {
   id: number;
@@ -91,6 +91,8 @@ const Presentation_2: React.FC<PresentationProps> = ({
     return false;
   }
 
+  
+
   const getNextSegment = (): Segment | null => {
     const nextOrder = getCurrentSegment().order + 1;
     return segments.find((segment) => segment.order == nextOrder) || null;
@@ -104,18 +106,22 @@ const Presentation_2: React.FC<PresentationProps> = ({
     return segments.find((segment) => segment.order == order) || null;
   };
 
+  useEffect(() => {
+    console.log("user scene", findCurrentScene(scenes[0].id));
+  },[])
+
   const handleVideoEnded = async () => {
     const current = getCurrentSegment();
 
     if (current.type == "assessment") {
       setIsAssessment(true)
       await createUserSegment({
-        variables: { userId: 58952, segmentId: current.id, data: current.data },
+        variables: { userId: 1, segmentId: current.id, data: current.data },
       });
     } else if (current.type == "feedback" || current.type == "revisit") {
       setIsAssessment(false);
       await createUserSegment({
-        variables: { userId: 58952, segmentId: current.id, data: current.data },
+        variables: { userId: 1, segmentId: current.id, data: current.data },
       });
       const nextStep = JSON.parse(
         localStorage.getItem("next_scene")!
@@ -125,20 +131,20 @@ const Presentation_2: React.FC<PresentationProps> = ({
       if (nextStep.success) {
         // Call mutation to create user scene
         await createUserScene({
-          variables: { userId: 58952, sceneId: currentScene?.id },
+          variables: { userId: 1, sceneId: currentScene?.id },
         });
         nextSceneSegments(currentScene?.successSceneId || 0);
       } else {
         // Call mutation to create user scene
         await createUserScene({
-          variables: { userId: 58952, sceneId: currentScene?.id },
+          variables: { userId: 1, sceneId: currentScene?.id },
         });
         nextSceneSegments(currentScene?.failureSceneId || 0);
       }
     } else {
       // Call mutation to create user segment
       await createUserSegment({
-        variables: { userId: 58952, segmentId: current.id, data: current.data },
+        variables: { userId: 1, segmentId: current.id, data: current.data },
       });
       setCurrentSegment(getNextSegment() || ({} as Segment));
     }
