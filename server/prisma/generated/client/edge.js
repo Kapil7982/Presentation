@@ -190,11 +190,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-<<<<<<< HEAD
       "value": "C:\\Users\\viren\\OneDrive\\Desktop\\Presentation\\server\\prisma\\generated\\client",
-=======
-      "value": "D:\\Projects\\ChatICon\\New folder\\Presentation\\server\\prisma\\generated\\client",
->>>>>>> 5056fee46a644f07ce7dc9916e67417df7f6f61c
       "fromEnvVar": null
     },
     "config": {
