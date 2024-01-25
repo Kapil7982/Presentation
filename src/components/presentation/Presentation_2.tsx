@@ -116,12 +116,12 @@ const Presentation_2: React.FC<PresentationProps> = ({
     if (current.type == "assessment") {
       setIsAssessment(true)
       await createUserSegment({
-        variables: { userId: 1, segmentId: current.id, data: current.data },
+        variables: { userId: 5, segmentId: current.id, data: current.data },
       });
     } else if (current.type == "feedback" || current.type == "revisit") {
       setIsAssessment(false);
       await createUserSegment({
-        variables: { userId: 1, segmentId: current.id, data: current.data },
+        variables: { userId: 5, segmentId: current.id, data: current.data },
       });
       const nextStep = JSON.parse(
         localStorage.getItem("next_scene")!
@@ -131,20 +131,20 @@ const Presentation_2: React.FC<PresentationProps> = ({
       if (nextStep.success) {
         // Call mutation to create user scene
         await createUserScene({
-          variables: { userId: 1, sceneId: currentScene?.id },
+          variables: { userId: 5, sceneId: currentScene?.id },
         });
         nextSceneSegments(currentScene?.successSceneId || 0);
       } else {
         // Call mutation to create user scene
         await createUserScene({
-          variables: { userId: 1, sceneId: currentScene?.id },
+          variables: { userId: 5, sceneId: currentScene?.id },
         });
         nextSceneSegments(currentScene?.failureSceneId || 0);
       }
     } else {
       // Call mutation to create user segment
       await createUserSegment({
-        variables: { userId: 1, segmentId: current.id, data: current.data },
+        variables: { userId: 5, segmentId: current.id, data: current.data },
       });
       setCurrentSegment(getNextSegment() || ({} as Segment));
     }

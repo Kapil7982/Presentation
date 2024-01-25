@@ -30,6 +30,13 @@ interface SceneUserCount {
   order: number;
 }
 
+interface SceneUserCount {
+  scene_id: number;
+  users: number;
+  order: number;
+  usersSet?: Set<number>; // Add this line to define the 'usersSet' property
+}
+
 
 const resolvers = {
   Query: {
@@ -50,6 +57,7 @@ const resolvers = {
         },
       });
     },
+    
     getUsersPerScene: async (): Promise<SceneUserCount[]> => {
       try {
         const userScenes = await prisma.user_scenes.findMany({
@@ -62,23 +70,37 @@ const resolvers = {
             },
           },
         });
-
-        const result: Record<number, SceneUserCount> = {};
-
+    
+        // Create a map to store user counts for each scene
+        const sceneUserCountsMap: Map<number, SceneUserCount> = new Map();
+    
         userScenes.forEach((userScene) => {
           const sceneId = userScene.scene_id;
-          const usersCount = result[sceneId] ? result[sceneId].users + 1 : 1;
-          const order = userScene.scenes?.order || 0; // Use optional chaining to handle the possibility of scenes being null
-
-          result[sceneId] = {
-            scene_id: sceneId,
-            users: usersCount,
-            order: order,
-          };
+    
+          // If the scene is not in the map, add it with initial values
+          if (!sceneUserCountsMap.has(sceneId)) {
+            sceneUserCountsMap.set(sceneId, {
+              scene_id: sceneId,
+              users: 0,
+              order: userScene.scenes?.order || 0,
+              usersSet: new Set(),
+            });
+          }
+    
+          const sceneUserCount = sceneUserCountsMap.get(sceneId);
+          const userId = userScene.user_id;
+    
+          // Check if the user is unique for this scene
+          if (!sceneUserCount?.usersSet?.has(userId)) {
+            sceneUserCount?.usersSet?.add(userId);
+            sceneUserCount!.users++;
+          }
         });
-
-        const resultArray: SceneUserCount[] = Object.values(result);
-
+    
+        // Convert the map values to an array
+        const resultArray: SceneUserCount[] = Array.from(sceneUserCountsMap.values());
+        resultArray.sort((a, b) => {return a.order - b.order});
+    
         return resultArray;
       } catch (error) {
         console.error('Error fetching data:', error);

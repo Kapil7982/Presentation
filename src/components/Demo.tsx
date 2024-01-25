@@ -6,25 +6,28 @@ import { GetUsersPerScene } from "../graphql/queries"; // Import your queries
 interface UserScenes {
   scene_id: number;
   users: number;
+  order: number;
 }
 
 const Demo = () => {
   const [data, setData] = useState<UserScenes[]>();
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-
+  //console.log("Guru Data Out", data);
+  
   const fetchUsersPerScene = async () => {
     try {
       const { data, errors } = await client.query({
         query: GetUsersPerScene,
       });
+      //console.log("Guru Data", data);
 
       if (errors) {
         console.error("GraphQL Errors:", errors);
       }
 
       if (data) {
-        console.log("Guru Data", data);
         setData(data.getUsersPerScene);
+        console.log("Guru Data", data);
         console.log("Users per scene:", data.getUsersPerScene);
       }
     } catch (error: any) {
@@ -38,7 +41,7 @@ const Demo = () => {
 
   useEffect(() => {
     if (data && chartRef.current) {
-      const sceneIds = data.map((item) => item.scene_id);
+      const sceneIds = data?.map((item) => `Scene ${item.order}`);
       const users = data.map((item) => item.users);
 
       const ctx = chartRef.current.getContext("2d");
@@ -47,13 +50,13 @@ const Demo = () => {
           type: "bar",
           data: {
             // labels: sceneIds,
-            labels: sceneIds.map(String),
+            labels: sceneIds,
             datasets: [
               {
                 label: "Users per Scene",
                 data: users,
-                backgroundColor: "rgba(75,192,192,0.2)",
-                borderColor: "rgba(75,192,192,1)",
+                backgroundColor: ["rgba(178, 222, 39)", "rgba(255, 0, 0, 1)"],
+                // borderColor: "rgba(255, 0, 0, 1)",
                 borderWidth: 1,
               },
             ],
