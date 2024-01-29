@@ -13,6 +13,9 @@ import MicButton from "./MicButton";
 import FullScreenButton from "../full-screen/FullScreenButton";
 import ReactMarkdown from "react-markdown";
 
+import AOS from "aos";
+import 'aos/dist/aos.css';
+
 interface Segment {
   id: number;
   type: string;
@@ -60,6 +63,11 @@ const Presentation_2: React.FC<PresentationProps> = ({
     setCurrentSegment(segments[0]);
   }, [segments]);
 
+  //for initialize AOS 
+  useEffect(() => {
+    AOS.init();
+  }, [])
+
   const getCurrentSegment = (): Segment => {
     return typeof currentSegment == "function"
       ? currentSegment()
@@ -94,12 +102,12 @@ const Presentation_2: React.FC<PresentationProps> = ({
 
   const getNextSegment = (): Segment | null => {
 
-    const innerHtmlElement = document.querySelector(".innerHtml");
+    // const innerHtmlElement = document.querySelector(".innerHtml");
     // console.log("1remove")
-    if (innerHtmlElement) {
-      innerHtmlElement.classList.remove("show");
-      console.log("removed111")
-    }
+    // if (innerHtmlElement) {
+    //   innerHtmlElement.classList.remove("show");
+    //   console.log("removed111")
+    // }
 
     const nextOrder = getCurrentSegment().order + 1;
     return segments.find((segment) => segment.order == nextOrder) || null;
@@ -162,16 +170,56 @@ const Presentation_2: React.FC<PresentationProps> = ({
     }
     // -------------------
     const innerHtmlElement = document.querySelector(".innerHtml");
+    // if (innerHtmlElement) {
+    //   const innerHtmlContent = innerHtmlElement.innerHTML.trim();
+    //   const isContentBlank = innerHtmlContent === "";
+    //   if (!isContentBlank) {
+    //     console.log("added")
+    //     innerHtmlElement.classList.add("show");
+    //   }
+    // }
+
+    console.log("hello", innerHtmlElement)
+
 
     if (innerHtmlElement) {
       const innerHtmlContent = innerHtmlElement.innerHTML.trim();
       const isContentBlank = innerHtmlContent === "";
       if (!isContentBlank) {
-        console.log("added")
-        innerHtmlElement.classList.add("show");
+        console.log("Content is not blank:", innerHtmlContent);
+        // Apply data-aos="fade-up" to <h3> elements
+        const h3Elements = innerHtmlElement.querySelectorAll("h3");
+        h3Elements.forEach(element => {
+          element.setAttribute("data-aos", "fade-up");
+        });
+
+        // Apply data-aos="fade-left" to <p> elements
+        const pElements = innerHtmlElement.querySelectorAll("p");
+        pElements.forEach(element => {
+          element.setAttribute("data-aos", "fade-left");
+        });
+
+        // Apply data-aos="fade-right" to <pre> elements
+        const preElements = innerHtmlElement.querySelectorAll("pre");
+        preElements.forEach(element => {
+          element.setAttribute("data-aos", "fade-right");
+        });
+
+        // Apply data-aos="fade-down" to <ul> elements
+        const ulElements = innerHtmlElement.querySelectorAll("ul");
+        ulElements.forEach(element => {
+          element.setAttribute("data-aos", "fade-down");
+        });
+
+        // Apply data-aos="fade-down" to <ul> elements
+        const imgElements = innerHtmlElement.querySelectorAll("img");
+        imgElements.forEach(element => {
+          element.setAttribute("data-aos", "zoom-in");
+        });
+      } else {
+        console.log("Content is blank");
       }
     }
-
   }, [currentSegment]);
 
   useEffect(() => {
@@ -207,20 +255,21 @@ const Presentation_2: React.FC<PresentationProps> = ({
   return (
     <div className="Presentation">
       <div className="reveal">
-        <div className="slides">
+        <div className="slides"
+        >
           <section data-markdown style={{ height: "100%", width: "100%" }}>
             <div
               className="innerHtml"
-
               dangerouslySetInnerHTML={{
                 __html: getCurrentSegment()?.slide?.slide,
               }}
             ></div>
+            {/* <div data-aos="flip-left">Hello World</div> */}
             {/* Use ReactMarkdown to render the Markdown content */}
             {/* <ReactMarkdown className="innerHtml">{getCurrentSegment()?.slide?.slide}</ReactMarkdown> */}
           </section>
         </div>
-      </div>
+      </div >
       <div className="videoTag">
         <Video
           video={getCurrentSegment().video}
@@ -232,7 +281,7 @@ const Presentation_2: React.FC<PresentationProps> = ({
         <FullScreenButton />
 
       </div>
-    </div>
+    </div >
   );
 };
 
