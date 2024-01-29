@@ -26,7 +26,7 @@ function App() {
   const startLecture = async () => {
     const scenesData = await fetchScenes(73739);
     setScenes(scenesData);
-    console.log("scenes", scenesData);
+    // console.log("scenes", scenesData);
     const segmentsData = await fetchSegments(scenesData[0]?.id);
     setSegments(segmentsData);
   };
@@ -50,7 +50,7 @@ function App() {
         query: GetSegmentsBySceneId,
         variables: { sceneId: id },
       });
-      console.log("segments", data);
+      // console.log("segments", data);
       return data.getSegmentsBySceneId;
     } catch (error: any) {
       console.error("Error fetching segments:", error);

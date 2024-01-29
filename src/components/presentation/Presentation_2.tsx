@@ -53,8 +53,8 @@ const Presentation_2: React.FC<PresentationProps> = ({
   const [isAssessment, setIsAssessment] = useState<boolean>(false);
 
   //   MUTATIONS
-    const [createUserScene] = useMutation(CreateUserSceneMutation);
-    const [createUserSegment] = useMutation(CreateUserSegmentMutation);
+  const [createUserScene] = useMutation(CreateUserSceneMutation);
+  const [createUserSegment] = useMutation(CreateUserSegmentMutation);
 
   useEffect(() => {
     setCurrentSegment(segments[0]);
@@ -93,6 +93,14 @@ const Presentation_2: React.FC<PresentationProps> = ({
   }
 
   const getNextSegment = (): Segment | null => {
+
+    const innerHtmlElement = document.querySelector(".innerHtml");
+    // console.log("1remove")
+    if (innerHtmlElement) {
+      innerHtmlElement.classList.remove("show");
+      console.log("removed111")
+    }
+
     const nextOrder = getCurrentSegment().order + 1;
     return segments.find((segment) => segment.order == nextOrder) || null;
   };
@@ -152,6 +160,18 @@ const Presentation_2: React.FC<PresentationProps> = ({
       document.querySelector("video")?.load();
       document.querySelector("video")?.play();
     }
+    // -------------------
+    const innerHtmlElement = document.querySelector(".innerHtml");
+
+    if (innerHtmlElement) {
+      const innerHtmlContent = innerHtmlElement.innerHTML.trim();
+      const isContentBlank = innerHtmlContent === "";
+      if (!isContentBlank) {
+        console.log("added")
+        innerHtmlElement.classList.add("show");
+      }
+    }
+
   }, [currentSegment]);
 
   useEffect(() => {
@@ -189,14 +209,15 @@ const Presentation_2: React.FC<PresentationProps> = ({
       <div className="reveal">
         <div className="slides">
           <section data-markdown style={{ height: "100%", width: "100%" }}>
-            {/* <div
+            <div
               className="innerHtml"
+
               dangerouslySetInnerHTML={{
                 __html: getCurrentSegment()?.slide?.slide,
               }}
-            ></div> */}
-           {/* Use ReactMarkdown to render the Markdown content */}
-           <ReactMarkdown className="innerHtml">{getCurrentSegment()?.slide?.slide}</ReactMarkdown>
+            ></div>
+            {/* Use ReactMarkdown to render the Markdown content */}
+            {/* <ReactMarkdown className="innerHtml">{getCurrentSegment()?.slide?.slide}</ReactMarkdown> */}
           </section>
         </div>
       </div>
@@ -208,8 +229,8 @@ const Presentation_2: React.FC<PresentationProps> = ({
       </div>
       <div className="bottom-buttons">
         <MicButton isAssessment={isAssessment} setTranscript={setTranscript} />
-        <FullScreenButton/>
-        
+        <FullScreenButton />
+
       </div>
     </div>
   );
