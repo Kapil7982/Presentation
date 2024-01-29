@@ -59,14 +59,15 @@ const Presentation_2: React.FC<PresentationProps> = ({
   const [createUserScene] = useMutation(CreateUserSceneMutation);
   const [createUserSegment] = useMutation(CreateUserSegmentMutation);
 
+  //for initialize AOS 
+  useEffect(() => {
+    console.log("useEffect for AOS initialize")
+    AOS.init();
+  }, [])
   useEffect(() => {
     setCurrentSegment(segments[0]);
   }, [segments]);
 
-  //for initialize AOS 
-  useEffect(() => {
-    AOS.init();
-  }, [])
 
   const getCurrentSegment = (): Segment => {
     return typeof currentSegment == "function"
@@ -180,8 +181,6 @@ const Presentation_2: React.FC<PresentationProps> = ({
     // }
 
     console.log("hello", innerHtmlElement)
-
-
     if (innerHtmlElement) {
       const innerHtmlContent = innerHtmlElement.innerHTML.trim();
       const isContentBlank = innerHtmlContent === "";
@@ -191,6 +190,7 @@ const Presentation_2: React.FC<PresentationProps> = ({
         const h3Elements = innerHtmlElement.querySelectorAll("h3");
         h3Elements.forEach(element => {
           element.setAttribute("data-aos", "fade-up");
+          // element.classList.add("aos-init", "aos-animate");
         });
 
         // Apply data-aos="fade-left" to <p> elements
