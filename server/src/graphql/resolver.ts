@@ -24,6 +24,19 @@ type CreateUserSegmentInput = {
   updated_at?: Date | string;
 };
 
+interface SceneUserCount {
+  scene_id: number;
+  users: number;
+  order: number;
+}
+
+interface SceneUserCount {
+  scene_id: number;
+  users: number;
+  order: number;
+  usersSet?: Set<number>; // Add this line to define the 'usersSet' property
+}
+
 
 const resolvers = {
   Query: {
@@ -43,6 +56,56 @@ const resolvers = {
           scene_id: sceneId,
         },
       });
+    },
+    
+    getUsersPerScene: async (): Promise<SceneUserCount[]> => {
+      try {
+        const userScenes = await prisma.user_scenes.findMany({
+          include: {
+            scenes: {
+              select: {
+                id: true,
+                order: true,
+              },
+            },
+          },
+        });
+    
+        // Create a map to store user counts for each scene
+        const sceneUserCountsMap: Map<number, SceneUserCount> = new Map();
+    
+        userScenes.forEach((userScene) => {
+          const sceneId = userScene.scene_id;
+    
+          // If the scene is not in the map, add it with initial values
+          if (!sceneUserCountsMap.has(sceneId)) {
+            sceneUserCountsMap.set(sceneId, {
+              scene_id: sceneId,
+              users: 0,
+              order: userScene.scenes?.order || 0,
+              usersSet: new Set(),
+            });
+          }
+    
+          const sceneUserCount = sceneUserCountsMap.get(sceneId);
+          const userId = userScene.user_id;
+    
+          // Check if the user is unique for this scene
+          if (!sceneUserCount?.usersSet?.has(userId)) {
+            sceneUserCount?.usersSet?.add(userId);
+            sceneUserCount!.users++;
+          }
+        });
+    
+        // Convert the map values to an array
+        const resultArray: SceneUserCount[] = Array.from(sceneUserCountsMap.values());
+        resultArray.sort((a, b) => {return a.order - b.order});
+    
+        return resultArray;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+      }
     },
   },
   Mutation: {

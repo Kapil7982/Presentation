@@ -10,7 +10,8 @@ import "reveal.js/dist/theme/white.css";
 import "./Presentation.css";
 import Video from "../video/Video";
 import MicButton from "./MicButton";
-import FullScreenButton from "../full-screen/FullScreenButton";
+
+import FullScreenButton from "../fullScreen/FullScreenButton";
 import ReactMarkdown from "react-markdown";
 
 import AOS from "aos";
@@ -122,18 +123,22 @@ const Presentation_2: React.FC<PresentationProps> = ({
     return segments.find((segment) => segment.order == order) || null;
   };
 
+  useEffect(() => {
+    console.log("user scene", findCurrentScene(scenes[0].id));
+  }, []);
+
   const handleVideoEnded = async () => {
     const current = getCurrentSegment();
 
     if (current.type == "assessment") {
-      setIsAssessment(true)
+      setIsAssessment(true);
       await createUserSegment({
-        variables: { userId: 58952, segmentId: current.id, data: current.data },
+        variables: { userId: 3, segmentId: current.id, data: current.data },
       });
     } else if (current.type == "feedback" || current.type == "revisit") {
       setIsAssessment(false);
       await createUserSegment({
-        variables: { userId: 58952, segmentId: current.id, data: current.data },
+        variables: { userId: 3, segmentId: current.id, data: current.data },
       });
       const nextStep = JSON.parse(
         localStorage.getItem("next_scene")!
@@ -143,26 +148,24 @@ const Presentation_2: React.FC<PresentationProps> = ({
       if (nextStep.success) {
         // Call mutation to create user scene
         await createUserScene({
-          variables: { userId: 58952, sceneId: currentScene?.id },
+          variables: { userId: 3, sceneId: currentScene?.id },
         });
         nextSceneSegments(currentScene?.successSceneId || 0);
       } else {
         // Call mutation to create user scene
         await createUserScene({
-          variables: { userId: 58952, sceneId: currentScene?.id },
+          variables: { userId: 3, sceneId: currentScene?.id },
         });
         nextSceneSegments(currentScene?.failureSceneId || 0);
       }
     } else {
       // Call mutation to create user segment
       await createUserSegment({
-        variables: { userId: 58952, segmentId: current.id, data: current.data },
+        variables: { userId: 3, segmentId: current.id, data: current.data },
       });
       setCurrentSegment(getNextSegment() || ({} as Segment));
     }
   };
-
-
   useEffect(() => {
     const current = getCurrentSegment();
     if (current.video) {
@@ -224,7 +227,7 @@ const Presentation_2: React.FC<PresentationProps> = ({
 
   useEffect(() => {
     const current = getCurrentSegment();
-    console.log("transcript", transcript)
+    console.log("transcript", transcript);
     if (current.type == "assessment") {
       if (checkAnswer(transcript, current?.data?.data?.answer)) {
         //Success
@@ -279,7 +282,6 @@ const Presentation_2: React.FC<PresentationProps> = ({
       <div className="bottom-buttons">
         <MicButton isAssessment={isAssessment} setTranscript={setTranscript} />
         <FullScreenButton />
-
       </div>
     </div >
   );
