@@ -11,7 +11,7 @@ import "./Presentation.css";
 import Video from "../video/Video";
 import MicButton from "./MicButton";
 
-import FullScreenButton from "../full-screen/FullScreenButton";
+import FullScreenButton from "../fullScreen/FullScreenButton";
 import ReactMarkdown from "react-markdown";
 
 

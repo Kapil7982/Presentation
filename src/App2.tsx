@@ -12,6 +12,7 @@ import FullScreenButton from "./components/fullScreen/FullScreenButton";
 import Presentation_2 from "./components/presentation/Presentation_2";
 import { Link } from "react-router-dom";
 
+
 interface Lecture {
   id: number;
   title: string;

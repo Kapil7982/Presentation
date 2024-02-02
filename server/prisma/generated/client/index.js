@@ -192,9 +192,6 @@ const config = {
     },
     "output": {
       "value": "C:\\Users\\viren\\OneDrive\\Desktop\\Presentation\\server\\prisma\\generated\\client",
-
-      "value": "D:\\Presentation\\server\\prisma\\generated\\client",
-
       "fromEnvVar": null
     },
     "config": {

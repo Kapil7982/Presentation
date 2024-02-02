@@ -19,7 +19,7 @@ const Demo = () => {
       const { data, errors } = await client.query({
         query: GetUsersPerScene,
       });
-      //console.log("Guru Data", data);
+
 
       if (errors) {
         console.error("GraphQL Errors:", errors);
@@ -58,7 +58,7 @@ const Demo = () => {
                // backgroundColor: ["rgba(178, 222, 39)", "rgba(255, 0, 0, 1)"],
                 borderColor: 'rgb(75, 192, 192)',
                 borderWidth: 1,
-                tension: 0.1,
+              tension: 0.1,
               
               },
             ],
