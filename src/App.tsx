@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Demo from "./components/Demo";
 import App2 from "./App2";
+import client from "./graphql/client";
+import { GetScenesByLectureId, GetSegmentsBySceneId } from "./graphql/queries";
 
 function App() {
   const [logoUrl, setLogoUrl] = useState<string>(
