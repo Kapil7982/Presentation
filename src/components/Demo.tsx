@@ -47,7 +47,7 @@ const Demo = () => {
       const ctx = chartRef.current.getContext("2d");
       if (ctx) {
         new Chart(ctx, {
-          type: "bar",
+          type: "line",
           data: {
             // labels: sceneIds,
             labels: sceneIds,
@@ -55,9 +55,11 @@ const Demo = () => {
               {
                 label: "Users per Scene",
                 data: users,
-                backgroundColor: ["rgba(178, 222, 39)", "rgba(255, 0, 0, 1)"],
-                // borderColor: "rgba(255, 0, 0, 1)",
+               // backgroundColor: ["rgba(178, 222, 39)", "rgba(255, 0, 0, 1)"],
+                borderColor: 'rgb(75, 192, 192)',
                 borderWidth: 1,
+                tension: 0.1,
+              
               },
             ],
           },
